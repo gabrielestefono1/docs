@@ -1,0 +1,46 @@
+.header{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: #23272F;
+    height: 4rem;
+    align-items: center;
+    color: var(--texto-primario);
+
+    > div{
+        display: flex;
+        justify-content: space-between;
+        width: calc(100% - 2rem);
+        height: 100%;
+        align-items: center;
+
+        > div:first-child{
+            padding: .25rem;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            color: var(--white);
+
+            > a{
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+
+                > img{
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+            }
+
+            > span{
+                color: var(--texto-secundario);
+                font-size: .875rem;
+            }
+        }
+
+        > div:last-child{
+            display: flex;
+            gap: 6px;
+        }
+    }
+}
