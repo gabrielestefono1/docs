@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->text('corpo');
-            $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('post_id')->nullable();
+            $table->unsignedBigInteger('grupo_id')->nullable();
             $table->timestamps();
         
             $table->foreign('post_id')->references('id')->on('react.posts');
+            $table->foreign('grupo_id')->references('id')->on('react.grupos');
         });
     }
 
@@ -29,6 +31,10 @@ return new class extends Migration
     {
         Schema::table('react.textos', function (Blueprint $table) {
             $table->dropForeign(['post_id']);
+        });
+
+        Schema::table('react.textos', function (Blueprint $table) {
+            $table->dropForeign(['grupo_id']);
         });
         
         Schema::dropIfExists('react.textos');

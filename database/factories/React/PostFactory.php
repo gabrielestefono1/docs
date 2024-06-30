@@ -3,6 +3,7 @@
 namespace Database\Factories\React;
 
 use App\Models\react\Categoria;
+use App\Models\react\Grupo;
 use App\Models\react\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,18 +19,20 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-        $random = rand(1, 5);
-        $categoria = Categoria::inRandomOrder()->first();
-        $temFilhos = $categoria && rand(0, 1);
-        $filho = !$temFilhos && Categoria::count() > 1 ? rand(0, 1) : false;
-        $idPai = $filho ? Post::where('tem_filhos', true)->inRandomOrder()->first()->id ?? null : null;
-
+        $name = fake()->name();
+        if(rand(1,2) === 1){
+            return [
+                'title_aside' => $name,
+                'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $name))),
+                'categoria_id' => rand(1, count(Categoria::all())),
+                'grupo_id' => null
+            ];
+        }
         return [
-            'title_aside' => $this->faker->word,
-            'categoria_id' => $random === 1 ? 1 : Categoria::factory(),
-            'id_pai' => $idPai,
-            'tem_filhos' => $temFilhos,
-            'filho' => $filho,
+            'title_aside' => $name,
+            'slug' => strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $name))),
+            'categoria_id' => null,
+            'grupo_id' => rand(1, count(Grupo::all()))
         ];
     }
 }

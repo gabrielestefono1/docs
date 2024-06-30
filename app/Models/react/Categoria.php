@@ -14,4 +14,9 @@ class Categoria extends Model
     {
         return $this->hasMany(Post::class, 'categoria_id');
     }
+
+    public function grupos()
+    {
+        return $this->hasMany(Grupo::class, 'categoria_id');
+    }
 }

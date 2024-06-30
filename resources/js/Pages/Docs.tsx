@@ -48,7 +48,7 @@ export interface Grupo{
     updated_at: Date
 }
 
-export default function Welcome({ auth, categorias, textos }: Readonly<ReactProps>) {
+export default function Docs({ auth, categorias, textos }: Readonly<ReactProps>) {
     return (
         <>
             <Head title="Portfolio" />

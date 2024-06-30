@@ -2,6 +2,7 @@
 
 namespace Database\Factories\React;
 
+use App\Models\react\Categoria;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,7 @@ class CategoriaFactory extends Factory
     {
         return [
             'nome' => fake()->name(),
+            'ordenacao' => null
         ];
     }
 }

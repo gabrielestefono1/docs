@@ -16,6 +16,7 @@ use Inertia\Inertia;
 // });
 
 Route::get('/', [HomeController::class, 'index'])->name('react-home');
+Route::get('/{slug}', [HomeController::class, 'show'])->name('react-home');
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

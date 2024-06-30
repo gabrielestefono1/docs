@@ -11,17 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('react.posts', function (Blueprint $table) {
+        Schema::create('react.grupos', function (Blueprint $table) {
             $table->id();
             $table->string('title_aside');
-            $table->boolean('tem_filhos')->default(false);
-            $table->boolean('filho')->default(false);
+            $table->string('slug');
             $table->unsignedBigInteger('categoria_id')->nullable();
-            $table->unsignedBigInteger('id_pai')->nullable();
             $table->timestamps();
-        
+
             $table->foreign('categoria_id')->references('id')->on('react.categorias')->onDelete('set null');
-            $table->foreign('id_pai')->references('id')->on('react.posts')->onDelete('cascade');
         });
     }
 
@@ -30,10 +27,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('react.posts', function (Blueprint $table) {
+        Schema::table('react.grupos', function (Blueprint $table) {
             $table->dropForeign(['categoria_id']);
         });
-        
-        Schema::dropIfExists('react.posts');
+
+        Schema::dropIfExists('react.grupos');
     }
 };

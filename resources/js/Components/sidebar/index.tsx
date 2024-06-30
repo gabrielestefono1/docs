@@ -7,8 +7,8 @@ export default function Sidebar({ categoria }: Readonly<{ categoria: Categoria }
     return (
         <div className={styles.sidebar}>
             <h4 className={styles.sidebar}>{categoria.nome}</h4>
-            {categoria.posts.filter(post => post.filho === false && post.tem_filhos === false).map(post => <SingleMenu texto={post.title_aside} key={post.id}/>)}
-            {categoria.posts.filter(post => post.filho === false && post.tem_filhos === true).map(post => <MultipleMenu texto={post.title_aside} key={post.id} posts={categoria.posts.filter(el => el.id_pai === post.id)}/>)}
+            {categoria.posts.map(post => <SingleMenu texto={post.title_aside} slug={post.slug} key={post.id} />)}
+            {categoria.grupos.map(grupo => <MultipleMenu texto={grupo.title_aside} key={grupo.id} posts={grupo.posts} slug={grupo.slug}/>)}
         </div>
     )
 }

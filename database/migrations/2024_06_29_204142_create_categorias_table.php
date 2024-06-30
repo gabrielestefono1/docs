@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('react.categorias', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
+            $table->integer('ordenacao')->unique()->nullable();
             $table->timestamps();
         });
     }

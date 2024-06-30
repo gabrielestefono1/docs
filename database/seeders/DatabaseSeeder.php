@@ -3,8 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\react\Categoria;
+use App\Models\react\Grupo;
 use App\Models\react\Post;
+use App\Models\react\Texto;
 use App\Models\User;
+use Database\Factories\React\GrupoFactory;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -21,27 +24,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        
-        Categoria::factory()
-            ->count(10)
-            ->create()
-            ->each(function ($categoria) {
-                $posts = Post::factory()
-                    ->count(rand(1, 3))
-                    ->create(['categoria_id' => $categoria->id]);
-                
-                $posts->each(function ($post) use ($posts) {
-                    if ($post->tem_filhos) {
-                        Post::factory()
-                            ->count(rand(1, 2))
-                            ->create([
-                                'categoria_id' => $post->categoria_id,
-                                'id_pai' => $post->id,
-                                'filho' => true,
-                                'tem_filhos' => false,
-                            ]);
-                    }
-                });
-            });
+
+        Categoria::factory(10)->create();
+        Grupo::factory(5)->create();
+        Post::factory(50)->create();
+        Texto::factory(500)->create();
     }
 }

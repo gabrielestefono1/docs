@@ -5,22 +5,22 @@ namespace App\Models\react;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Grupo extends Model
 {
     use HasFactory;
-    protected $table = 'react.posts';
+    protected $table = 'react.grupos';
 
     public function categoria()
     {
         return $this->belongsTo(Categoria::class, 'categoria_id');
     }
 
-    public function grupo()
+    public function posts()
     {
-        return $this->belongsTo(Grupo::class, 'grupo_id');
+        return $this->hasMany(Post::class, 'grupo_id');
     }
 
     public function textos(){
-        return $this->hasMany(Texto::class, 'post_id');
+        return $this->hasMany(Texto::class, 'grupo_id');
     }
 }
