@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('react.grupos', function (Blueprint $table) {
             $table->id();
             $table->string('title_aside');
-            $table->string('slug');
+            $table->string('slug')->unique();
+            $table->integer('ordenacao')->unique()->nullable();
             $table->unsignedBigInteger('categoria_id')->nullable();
             $table->timestamps();
 

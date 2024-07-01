@@ -10,6 +10,8 @@ class Categoria extends Model
     use HasFactory;
     protected $table = 'react.categorias';
 
+    protected $fillable = ['nome', 'ordenacao'];
+
     public function posts()
     {
         return $this->hasMany(Post::class, 'categoria_id');

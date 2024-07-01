@@ -15,8 +15,6 @@ use Inertia\Inertia;
 //     ]);
 // });
 
-Route::get('/', [HomeController::class, 'index'])->name('react-home');
-Route::get('/{slug}', [HomeController::class, 'show'])->name('react-home');
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');
@@ -29,3 +27,4 @@ Route::get('/{slug}', [HomeController::class, 'show'])->name('react-home');
 // });
 
 require __DIR__.'/auth.php';
+require __DIR__.'/react.php';

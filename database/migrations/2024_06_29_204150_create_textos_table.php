@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->text('corpo');
+            $table->integer('ordenacao')->unique()->nullable();
             $table->unsignedBigInteger('post_id')->nullable();
             $table->unsignedBigInteger('grupo_id')->nullable();
             $table->timestamps();

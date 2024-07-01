@@ -10,6 +10,8 @@ class Post extends Model
     use HasFactory;
     protected $table = 'react.posts';
 
+    protected $fillable = ['title_aside', 'slug', 'categoria_id', 'grupo_id'];
+
     public function categoria()
     {
         return $this->belongsTo(Categoria::class, 'categoria_id');

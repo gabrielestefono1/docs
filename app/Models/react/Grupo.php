@@ -10,6 +10,8 @@ class Grupo extends Model
     use HasFactory;
     protected $table = 'react.grupos';
 
+    protected $fillable = ['title_aside', 'slug', 'categoria_id'];
+
     public function categoria()
     {
         return $this->belongsTo(Categoria::class, 'categoria_id');
