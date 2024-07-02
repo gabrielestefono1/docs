@@ -32,6 +32,8 @@ class PostResource extends Resource
         ->schema([
             TextInput::make('title_aside'),
             TextInput::make('slug'),
+            TextInput::make('ordenacao')
+                    ->type('number'),
             Select::make('selection')
                 ->options([
                     'categoria' => 'Categoria',

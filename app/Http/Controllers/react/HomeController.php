@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
     public function index(){
         $categorias = Categoria::with(['posts', 'grupos.posts'])->orderBy('ordenacao')->get();
-        $textos = Post::with('textos')->first()->textos ?? [];
+        $textos = Post::with('textos')->orderBy('ordenacao')->first()->textos ?? [];
         return Inertia::render('Welcome', [
             'categorias' => $categorias,
             'textos' => $textos
@@ -22,9 +22,9 @@ class HomeController extends Controller
 
     public function show($slug){
         $categorias = Categoria::with(['posts', 'grupos.posts'])->orderBy('ordenacao')->get();
-        $textos = Post::with('textos')->where('slug', $slug)->first()->textos ?? null;
+        $textos = Post::with('textos')->where('slug', $slug)->orderBy('ordenacao')->first()->textos ?? null;
         if(!$textos){
-            $textos = Grupo::with('textos')->where('slug', $slug)->first()->textos ?? [];
+            $textos = Grupo::with('textos')->where('slug', $slug)->orderBy('ordenacao')->first()->textos ?? [];
         }
         return Inertia::render('Docs', [
             'categorias' => $categorias,

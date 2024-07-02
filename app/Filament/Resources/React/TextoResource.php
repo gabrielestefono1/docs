@@ -33,6 +33,8 @@ class TextoResource extends Resource
             ->schema([
                 TextInput::make("titulo"),
                 MarkdownEditor::make('corpo'),
+                TextInput::make('ordenacao')
+                    ->type('number'),
                 Select::make('selection')
                     ->options([
                         'post' => 'Post',
@@ -59,6 +61,7 @@ class TextoResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id'),
+                TextColumn::make('titulo'),
                 TextColumn::make('posts.title_aside'),
                 TextColumn::make('grupos.title_aside'),
             ])

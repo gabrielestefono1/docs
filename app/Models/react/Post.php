@@ -10,7 +10,7 @@ class Post extends Model
     use HasFactory;
     protected $table = 'react.posts';
 
-    protected $fillable = ['title_aside', 'slug', 'categoria_id', 'grupo_id'];
+    protected $fillable = ['title_aside', 'slug', 'categoria_id', 'grupo_id', 'ordenacao'];
 
     public function categoria()
     {

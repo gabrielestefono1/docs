@@ -10,7 +10,7 @@ class Grupo extends Model
     use HasFactory;
     protected $table = 'react.grupos';
 
-    protected $fillable = ['title_aside', 'slug', 'categoria_id'];
+    protected $fillable = ['title_aside', 'slug', 'categoria_id', 'ordenacao'];
 
     public function categoria()
     {

@@ -31,6 +31,8 @@ class GrupoResource extends Resource
             ->schema([
                 TextInput::make('title_aside'),
                 TextInput::make('slug'),
+                TextInput::make('ordenacao')
+                    ->type('number'),
                 Select::make('categoria_id')
                     ->options(Categoria::pluck('nome', 'id'))
             ])->columns(1);

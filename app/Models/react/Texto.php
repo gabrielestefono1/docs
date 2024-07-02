@@ -10,7 +10,7 @@ class Texto extends Model
     use HasFactory;
     protected $table = 'react.textos';
 
-    protected $fillable = ['titulo', 'corpo', 'post_id', 'grupo_id'];
+    protected $fillable = ['titulo', 'corpo', 'post_id', 'grupo_id', 'ordenacao'];
 
     public function posts(){
         return $this->belongsTo(Post::class, 'post_id');
