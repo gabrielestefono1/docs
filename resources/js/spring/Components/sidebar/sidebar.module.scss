@@ -1,0 +1,12 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+
+    > h4{
+        margin-left: 1.25rem;
+        margin-top: 1rem;
+        color: var(--texto-secundario);
+        font-size: .875rem;
+        margin-bottom: .375rem;
+    }
+}

@@ -14,15 +14,3 @@ Route::domain('gabrielestefono.local')->group(function () {
         Route::get('/{slug}', [HomeController::class, 'show'])->name('react-home');
     });
 });
-
-Route::domain('webestcoding.local')->group(function () {
-    Route::group(['prefix' => 'aprenda'], function (){
-        // Route::get('/', [HomeController::class, 'index'])->name('react-home');
-        // Route::get('/{slug}', [HomeController::class, 'show'])->name('react-home');
-    });
-    
-    Route::group(['prefix' => 'referencia'], function (){
-        Route::get('/', [HomeController::class, 'index'])->name('react-home');
-        Route::get('/{slug}', [HomeController::class, 'show'])->name('react-home');
-    });
-});
