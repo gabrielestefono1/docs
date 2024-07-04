@@ -49,6 +49,9 @@ export interface Grupo{
 }
 
 export default function Docs({ auth, categorias, textos }: Readonly<ReactProps>) {
+    const body = document.body;
+    body.className = "spring"
+
     return (
         <>
             <Head title="Spring Framework Documentation :: Spring Framework" />

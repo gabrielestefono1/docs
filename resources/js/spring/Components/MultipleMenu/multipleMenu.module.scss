@@ -3,7 +3,7 @@
     height: 2.875rem;
     padding-left: 1.25rem;
     border-radius: 0 .9375rem .9375rem 0;
-    color: var(--white);
+    color: var(--spring-white);
     font-size: 1.125rem;
     font-weight: 700;
     display: flex;
@@ -30,7 +30,7 @@
 
     &.active{
         background-color: #283541;
-        color: var(--texto-primario);
+        color: var(--spring-texto-primario);
 
         > div > img{
             rotate: 0deg;
@@ -44,7 +44,7 @@
     height: 2.875rem;
     padding-left: 2.25rem;
     border-radius: 0 .9375rem .9375rem 0;
-    color: var(--white);
+    color: var(--spring-white);
     font-size: 1.125rem;
     font-weight: 700;
     display: flex;
@@ -71,6 +71,6 @@
 
     &.active{
         background-color: #283541;
-        color: var(--texto-primario);
+        color: var(--spring-texto-primario);
     }
 }

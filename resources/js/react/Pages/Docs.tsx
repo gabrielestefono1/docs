@@ -49,6 +49,10 @@ export interface Grupo{
 }
 
 export default function Docs({ auth, categorias, textos }: Readonly<ReactProps>) {
+
+    const body = document.body;
+    body.className = "react"
+    
     return (
         <>
             <Head title="Portfolio" />

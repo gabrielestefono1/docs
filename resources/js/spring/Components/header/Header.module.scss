@@ -4,7 +4,7 @@
     justify-content: center;
     background-color: #1B1F23;
     align-items: center;
-    color: var(--texto-primario);
+    color: var(--spring-texto-primario);
     border-bottom: var(--borda-separacao);
 
     > div:first-child {
@@ -19,7 +19,7 @@
             align-items: center;
             width: 100%;
             gap: 0.5rem;
-            color: var(--white);
+            color: var(--spring-white);
 
             > a {
                 display: flex;
@@ -34,7 +34,7 @@
             }
 
             > span {
-                color: var(--texto-secundario);
+                color: var(--spring-texto-secundario);
                 font-size: 0.875rem;
             }
         }

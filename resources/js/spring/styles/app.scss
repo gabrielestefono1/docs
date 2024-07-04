@@ -5,21 +5,21 @@
 
 :root{
     // Fontes
-    --roboto: "Roboto", sans-serif;
+    --spring-roboto: "Roboto", sans-serif;
 
     // Cores
-    --texto-primario: #ABACAF;
-    --texto-secundario: #107ddd;
-    --white: #FFFFFF;
-    --background: #1B1F23;
-    --texto-highlight: #283541;
+    --spring-texto-primario: #ABACAF;
+    --spring-texto-secundario: #107ddd;
+    --spring-white: #FFFFFF;
+    --spring-background: #1B1F23;
+    --spring-texto-highlight: #283541;
 
     // Outros
-    --borda-separacao: 1px solid rgba(255, 255, 255, 0.2);
+    --spring-borda-separacao: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-body{
-    font-family: var(--roboto);
-    background-color: var(--background);
+body.spring{
+    font-family: var(--spring-roboto);
+    background-color: var(--spring-background);
 }
 

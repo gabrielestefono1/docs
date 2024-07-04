@@ -5,7 +5,7 @@
     background-color: #23272F;
     height: 4rem;
     align-items: center;
-    color: var(--texto-primario);
+    color: var(--react-texto-primario);
 
     > div{
         display: flex;
@@ -19,7 +19,7 @@
             display: flex;
             align-items: center;
             gap: .5rem;
-            color: var(--white);
+            color: var(--react-white);
 
             > a{
                 display: flex;
@@ -33,7 +33,7 @@
             }
 
             > span{
-                color: var(--texto-secundario);
+                color: var(--react-texto-secundario);
                 font-size: .875rem;
             }
         }
