@@ -1,6 +1,6 @@
-import Content from '@/spring/Components/content';
 import Header from '@/spring/Components/header/index';
 import { Head } from '@inertiajs/react';
+import Content from '../Components/content';
 
 interface ReactProps {
     categorias: Categoria[];
@@ -53,7 +53,7 @@ export default function Docs({ auth, categorias, textos }: Readonly<ReactProps>)
         <>
             <Head title="Spring Framework Documentation :: Spring Framework" />
             <Header />
-            {/* <Content categorias={categorias} textos={textos}/> */}
+            <Content/>
         </>
     );
 }

@@ -8,11 +8,14 @@
     --roboto: "Roboto", sans-serif;
 
     // Cores
-    --texto-primario: #58C4DC;
-    --texto-secundario: #99A1B3;
+    --texto-primario: #ABACAF;
+    --texto-secundario: #107ddd;
     --white: #FFFFFF;
     --background: #1B1F23;
     --texto-highlight: #283541;
+
+    // Outros
+    --borda-separacao: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 body{

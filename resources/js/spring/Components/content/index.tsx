@@ -2,27 +2,17 @@ import { Categoria, Texto } from "@/react/Pages/Welcome";
 import Sidebar from "../sidebar";
 import styles from "./content.module.scss";
 import ReactMarkdown from "react-markdown";
+import Main from "../main";
 
-export default function Content({
-    categorias,
-    textos,
-}: Readonly<{ categorias: Categoria[]; textos: Texto[] }>) {
+export default function Content() {
+    {/* <ReactMarkdown>{texto.corpo}</ReactMarkdown> */}
     return (
         <section className={styles.content}>
-            <div>
-                {categorias.map((categoria) => (
-                    <Sidebar key={categoria.id} categoria={categoria} />
-                ))}
+            <div className={styles.sidebar}></div>
+            <div className={styles.content}>
+                <Main/>
+                <div className={styles.info}></div>
             </div>
-            <div>
-                {textos.map((texto) => (
-                    <>
-                        <ReactMarkdown>{texto.corpo}</ReactMarkdown>
-                        <hr />
-                    </>
-                ))}
-            </div>
-            <div></div>
         </section>
     );
 }

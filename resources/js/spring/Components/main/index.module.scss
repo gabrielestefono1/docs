@@ -1,0 +1,28 @@
+div.main {
+    flex-grow: 1;
+    height: 100vh;
+    color: var(--texto-primario);
+
+    > div{
+        margin-inline: 2.25rem;
+        height: 1.3496rem;
+        padding: 1.25rem;
+        box-sizing: content-box;
+        border-bottom: var(--borda-separacao);
+
+        >span{
+            padding: 0 .5625rem;
+            line-height: 1.3125rem;
+        }
+
+        > a{
+            font-size: 16px;
+
+            &:hover{
+                text-decoration: underline;
+                color: var(--texto-secundario);
+            }
+        }
+
+    }
+}
