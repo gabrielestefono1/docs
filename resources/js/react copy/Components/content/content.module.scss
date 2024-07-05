@@ -53,7 +53,7 @@
         > span {
         }
 
-        ul {
+        > ul {
             color: white;
             font-size: 1.0625rem;
             font-weight: 400;
@@ -61,7 +61,7 @@
             list-style-type: disc;
             padding-left: 20px;
 
-            li > a {
+            > li > a {
                 color: var(--react-texto-primario);
             }
         }

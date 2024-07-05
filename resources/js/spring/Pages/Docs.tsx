@@ -1,6 +1,5 @@
-import Header from '@/spring/Components/header/index';
-import { Head } from '@inertiajs/react';
-import Content from '../Components/content';
+import Layout from '../Layout/Layout';
+import Main from '../Components/main';
 
 interface ReactProps {
     categorias: Categoria[];
@@ -49,14 +48,9 @@ export interface Grupo{
 }
 
 export default function Docs({ auth, categorias, textos }: Readonly<ReactProps>) {
-    const body = document.body;
-    body.className = "spring"
-
     return (
-        <>
-            <Head title="Spring Framework Documentation :: Spring Framework" />
-            <Header />
-            <Content/>
-        </>
+        <Layout title="Spring Framework Documentation :: Spring Framework">
+            <Main />
+        </Layout>
     );
 }

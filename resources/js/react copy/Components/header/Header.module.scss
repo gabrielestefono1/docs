@@ -7,7 +7,7 @@
     align-items: center;
     color: var(--react-texto-primario);
 
-    > nav{
+    > div{
         display: flex;
         justify-content: space-between;
         width: calc(100% - 2rem);
@@ -35,30 +35,6 @@
             > span{
                 color: var(--react-texto-secundario);
                 font-size: .875rem;
-            }
-        }
-
-        > button{
-            width: 56rem;
-            height: 2rem;
-            box-sizing: content-box;
-            padding: .25rem .25rem .25rem 1rem;
-            border-radius: 3.75rem;
-            background-color: var(--react-enphasis);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--react-texto-secundario);
-
-            > div:first-child{
-                display: flex;
-                align-items: center;
-
-                > img{
-                    width: .9375rem;
-                    height: .9375rem;
-                    margin-right: .75rem;
-                }
             }
         }
 

@@ -1,7 +1,6 @@
 import { Head } from '@inertiajs/react';
 import Header from '../Components/header';
 import Content from '../Components/content';
-import Layout from '../Layouts/Layout';
 
 interface ReactProps {
     categorias: Categoria[];
@@ -52,9 +51,9 @@ export interface Grupo{
 export default function Welcome({ auth, categorias, textos }: Readonly<ReactProps>) {
     return (
         <>
-            <Layout title="React Reference Overview U+2013 React">
-                <Content categorias={categorias} textos={textos} />
-            </Layout>
+            <Head title="Portfolio" />
+            <Header />
+            <Content categorias={categorias} textos={textos}/>
         </>
     );
 }
