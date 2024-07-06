@@ -15,8 +15,9 @@
     --spring-texto-highlight: #283541;
 
     // Outros
-    --spring-borda-separacao: 0.0625rem solid rgba(255, 255, 255, 0.2);
+    --spring-borda-separacao: .0625rem solid rgba(255, 255, 255, 0.2);
     --spring-borda-separacao2: 0.25rem solid hsla(0, 0%, 100%, 0.1);
+    --spring-borda-separacao-secundaria: .0625rem solid #1f98ff;
 }
 
 body.spring {

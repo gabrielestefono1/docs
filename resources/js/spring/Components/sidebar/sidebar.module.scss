@@ -70,18 +70,37 @@ div.sidebar {
             display: flex;
             position: relative;
 
-            > img {
+            > div {
                 width: 0.9375rem;
                 height: 0.9375rem;
                 position: absolute;
                 top: 0.1875rem;
                 left: -1.5625rem;
+                background-image: url("./magnifying1.svg");
+                background-repeat: no-repeat;
+                background-position: 50%;
+                background-size: contain;
             }
         }
 
         > span {
             color: rgb(187, 188, 190);
             opacity: 0.3;
+        }
+
+        &:hover {
+            border-top: var(--spring-borda-separacao-secundaria);
+            border-bottom: var(--spring-borda-separacao-secundaria);
+            color: var(--spring-texto-secundario);
+
+            > span {
+                color: var(--spring-texto-secundario);
+                opacity: 1;
+            }
+
+            > div > div {
+                background-image: url("./magnifying2.svg");
+            }
         }
     }
 }

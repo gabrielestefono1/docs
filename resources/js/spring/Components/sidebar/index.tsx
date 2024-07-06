@@ -1,5 +1,4 @@
 import styles from "./sidebar.module.scss";
-import magnifying from "./magnifying.svg";
 
 export default function Sidebar() {
     return (
@@ -13,7 +12,7 @@ export default function Sidebar() {
             </div>
             <button>
                 <div>
-                    <img src={magnifying} alt="Pesquisar" />
+                    <div className={styles.magnifying}></div>
                     <span>Search</span>
                 </div>
                 <span>CTRL + K</span>
