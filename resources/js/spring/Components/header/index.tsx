@@ -1,21 +1,21 @@
 import { Link } from "@inertiajs/react";
-import styles from './Header.module.scss';
-import springLogo from './spring-logo.svg';
-import github from './github.svg';
+import styles from "./Header.module.scss";
+import springLogo from "./spring-logo.svg";
+import github from "./github.svg";
 
 export default function Header() {
     return (
         <header className={styles.header}>
             <div>
                 <div>
-                    <Link href="/"><img src={springLogo} alt="Logotipo do Spring em modo dark" /></Link>
-                </div>
-                <div>
-                    {/* <Link href="">
-                        <img src={github} alt="Link do repositório do GitHub"/>
-                    </Link> */}
+                    <Link href="/">
+                        <img
+                            src={springLogo}
+                            alt="Logotipo do Spring em modo dark"
+                        />
+                    </Link>
                 </div>
             </div>
         </header>
-    )
+    );
 }

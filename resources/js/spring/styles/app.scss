@@ -1,26 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-:root{
+:root {
     // Fontes
     --spring-roboto: "Roboto", sans-serif;
 
     // Cores
-    --spring-texto-primario: #ABACAF;
+    --spring-texto-primario: #abacaf;
     --spring-texto-secundario: #107ddd;
-    --spring-white: #FFFFFF;
-    --spring-background: #1B1F23;
+    --spring-white: #ffffff;
+    --spring-background: #1b1f23;
     --spring-texto-highlight: #283541;
 
     // Outros
-    --spring-borda-separacao: 1px solid rgba(255, 255, 255, 0.2);
-    --spring-borda-separacao2: 4px solid hsla(0,0%,100%,.1);
+    --spring-borda-separacao: 0.0625rem solid rgba(255, 255, 255, 0.2);
+    --spring-borda-separacao2: 0.25rem solid hsla(0, 0%, 100%, 0.1);
 }
 
-body.spring{
+body.spring {
     font-family: var(--spring-roboto);
     background-color: var(--spring-background);
 }
-

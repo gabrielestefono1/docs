@@ -15,7 +15,7 @@ export default function Layout({
             <Head title={title} />
             <Header />
             <section className={styles.layout}>
-                <Sidebar/>
+                <Sidebar />
                 <div className={styles.content}>
                     {children}
                     <div className={styles.info}></div>

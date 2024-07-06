@@ -59,7 +59,7 @@
             font-weight: 400;
             line-height: 1.875rem;
             list-style-type: disc;
-            padding-left: 20px;
+            padding-left: 1.25rem;
 
             li > a {
                 color: var(--react-texto-primario);
@@ -72,10 +72,10 @@
             font-weight: 400;
             line-height: 1.875rem;
             list-style-type: decimal;
-            padding-left: 20px;
+            padding-left: 1.25rem;
 
             > li {
-                text-indent: 10px;
+                text-indent: .625rem;
                 > a {
                     color: var(--react-texto-primario);
                 }
@@ -84,7 +84,7 @@
 
         > pre {
             background-color: #16181d;
-            border-radius: 15px;
+            border-radius: .9375rem;
             padding: 2rem;
             margin-block: 2rem;
             color: white;
@@ -95,7 +95,7 @@
 
         > hr {
             border-bottom-color: rgb(52, 58, 70);
-            border-bottom-width: 1px;
+            border-bottom-width: .0625rem;
             border-top-color: rgb(52, 58, 70);
             margin-top: 1.25rem;
         }
