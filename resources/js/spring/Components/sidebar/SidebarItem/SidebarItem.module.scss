@@ -1,0 +1,18 @@
+.sidebarItem{
+    padding-block: .45rem;
+    padding-inline: .75rem .5625rem;
+    font-size: .875rem;
+    margin-left: .625rem;
+    box-sizing: border-box;
+    border-radius: .1875rem;
+    height: 2.0791rem;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    width: calc(100% - 10px);
+
+    &:hover{
+        color: var(--spring-texto-secundario);
+        background-color: #262A2D;
+    }
+}

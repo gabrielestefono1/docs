@@ -1,4 +1,6 @@
 import styles from "./sidebar.module.scss";
+import SidebarGroup from "./SidebarGroup";
+import SidebarItem from "./SidebarItem";
 
 export default function Sidebar() {
     return (
@@ -17,6 +19,13 @@ export default function Sidebar() {
                 </div>
                 <span>CTRL + K</span>
             </button>
+            <div>
+                <SidebarItem />
+                <SidebarGroup />
+                <SidebarGroup />
+                <SidebarGroup />
+                <SidebarGroup />
+            </div>
         </div>
     );
 }

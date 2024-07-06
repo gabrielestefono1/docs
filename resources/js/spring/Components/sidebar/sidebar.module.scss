@@ -5,7 +5,7 @@ div.sidebar {
     color: var(--spring-texto-primario);
     border-right: var(--spring-borda-separacao2);
 
-    > div {
+    > div:first-child {
         width: 100%;
         padding-left: 0.875rem;
         padding-right: 0.875rem;
@@ -102,5 +102,14 @@ div.sidebar {
                 background-image: url("./magnifying2.svg");
             }
         }
+    }
+
+    >  div:last-child{
+        width: 100%;
+        padding-left: .3125rem;
+        padding-right: 1.125rem;
+        height: auto;
+        box-sizing: border-box;
+        margin-top: .5625rem;
     }
 }

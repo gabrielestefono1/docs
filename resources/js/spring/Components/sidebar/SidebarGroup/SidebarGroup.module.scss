@@ -1,0 +1,44 @@
+.sidebarGroup{
+    padding-block: .45rem;
+    padding-inline: 1.375rem .9375rem;
+    font-size: .875rem;
+    box-sizing: border-box;
+    border-radius: .1875rem;
+    height: 2.0791rem;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    > div{
+        background-image: url('./chevron-white.svg');
+        width: 12px;
+        height: 12px;
+        rotate: -90deg;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 50%;
+        position: absolute;
+        left: 10px;
+    }
+
+    &:hover{
+        color: var(--spring-texto-secundario);
+        background-color: #262A2D;
+    }
+
+    &.active{
+        background-color: white;
+        color: var(--spring-background);
+
+        > div{
+            background-image: url('./chevron-black.svg');
+            rotate: 0deg;
+        }
+    }
+}
+
+.sidebarGroupItems{
+    margin-left: .625rem;
+}
