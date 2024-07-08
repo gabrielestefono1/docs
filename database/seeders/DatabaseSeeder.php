@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\react\Categoria;
-use App\Models\react\Grupo;
-use App\Models\react\Post;
-use App\Models\react\Texto;
+use App\Models\react\Categoria as ReactCategoria;
+use App\Models\react\Grupo  as ReactGrupo;
+use App\Models\react\Post  as ReactPost;
+use App\Models\react\Texto  as ReactTexto;
+use App\Models\spring\Grupo as SpringGrupo;
 use App\Models\User;
 use Database\Factories\React\GrupoFactory;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -25,9 +26,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Categoria::factory(10)->create();
-        Grupo::factory(5)->create();
-        Post::factory(50)->create();
-        Texto::factory(500)->create();
+        // ReactCategoria::factory(10)->create();
+        // ReactGrupo::factory(5)->create();
+        // ReactPost::factory(50)->create();
+        // ReactTexto::factory(500)->create();
+
+        SpringGrupo::factory(10)->create();
     }
 }

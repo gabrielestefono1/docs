@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import Header from "../Components/header";
 import styles from "./layout.module.scss";
 import Sidebar from "../Components/sidebar";
+import InfoBar from "../Components/infoBar";
 
 export default function Layout({
     children,
@@ -18,7 +19,7 @@ export default function Layout({
                 <Sidebar />
                 <div className={styles.content}>
                     {children}
-                    <div className={styles.info}></div>
+                    <InfoBar/>
                 </div>
             </section>
             <div>Footer</div>
