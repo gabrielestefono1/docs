@@ -5,9 +5,9 @@ namespace Database\Factories\Spring;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\spring\Conteudo>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\spring\Ordem>
  */
-class ConteudoFactory extends Factory
+class OrdemFactory extends Factory
 {
     /**
      * Define the model's default state.
