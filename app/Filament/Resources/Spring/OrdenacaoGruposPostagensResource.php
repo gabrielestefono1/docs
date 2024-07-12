@@ -3,11 +3,9 @@
 namespace App\Filament\Resources\Spring;
 
 use App\Filament\Resources\Spring\OrdenacaoGruposPostagensResource\Pages;
-use App\Filament\Resources\Spring\OrdenacaoGruposPostagensResource\RelationManagers;
 use App\Models\spring\Grupo;
 use App\Models\Spring\OrdenacaoGruposPostagens;
 use App\Models\spring\Postagem;
-use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -15,14 +13,14 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class OrdenacaoGruposPostagensResource extends Resource
 {
     protected static ?string $model = OrdenacaoGruposPostagens::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationGroup = "Spring";
 
     public static function form(Form $form): Form
     {
@@ -63,7 +61,7 @@ class OrdenacaoGruposPostagensResource extends Resource
                 TextColumn::make('grupo.titulo'),
                 TextColumn::make('ordenavel_type')
                     ->state(fn ($record) => $record->ordenavel_type === "\App\Models\spring\Grupo" ? 'Grupo' : 'Postagem'),
-                    TextColumn::make('ordenavel.titulo'),
+                TextColumn::make('ordenavel.titulo'),
                 TextColumn::make('ordem')
             ])
             ->filters([

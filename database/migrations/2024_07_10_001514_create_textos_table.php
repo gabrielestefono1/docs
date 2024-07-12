@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('textos', function (Blueprint $table) {
+        Schema::create('spring.textos', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
             $table->text('descricao');
-            $table->foreignId('postagem_id')->constrained('postagens')->onDelete('cascade');
+            $table->foreignId('postagem_id')->constrained('spring.postagems')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('textos');
+        Schema::dropIfExists('spring.textos');
     }
 };

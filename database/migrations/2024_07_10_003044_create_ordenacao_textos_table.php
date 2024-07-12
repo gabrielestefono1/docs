@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ordenacao_textos', function (Blueprint $table) {
+        Schema::create('spring.ordenacao_textos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('texto_id')->unique()->constrained('textos')->onDelete('cascade');
+            $table->foreignId('postagem_id')->unique()->constrained('spring.postagems')->onDelete('cascade');
+            $table->foreignId('texto_id')->unique()->constrained('spring.textos')->onDelete('cascade');
             $table->integer('ordem')->unique();
             $table->timestamps();
         });
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ordenacao_textos');
+        Schema::dropIfExists('spring.ordenacao_textos');
     }
 };

@@ -21,6 +21,8 @@ class GrupoResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = "Spring";
+
     public static function form(Form $form): Form
     {
         $existeId = isset($form->model->id);

@@ -2,11 +2,11 @@
 
 namespace App\Filament\Resources\Spring;
 
-use App\Filament\Resources\Spring\OrdenacaoGeralResource\Pages;
-use App\Filament\Resources\Spring\OrdenacaoGeralResource\RelationManagers;
-use App\Models\spring\Grupo;
-use App\Models\Spring\OrdenacaoGeral;
+use App\Filament\Resources\Spring\OrdenacaoTextosResource\Pages;
+use App\Filament\Resources\Spring\OrdenacaoTextosResource\RelationManagers;
+use App\Models\Spring\OrdenacaoTextos;
 use App\Models\spring\Postagem;
+use App\Models\spring\Texto;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -15,10 +15,12 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class OrdenacaoGeralResource extends Resource
+class OrdenacaoTextosResource extends Resource
 {
-    protected static ?string $model = OrdenacaoGeral::class;
+    protected static ?string $model = OrdenacaoTextos::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -30,20 +32,14 @@ class OrdenacaoGeralResource extends Resource
             ->schema([
                 TextInput::make('ordem')
                     ->type('number'),
-                Select::make('ordenavel_type')
+                Select::make('postagem_id')
                     ->reactive()
-                    ->options([
-                        '\App\Models\spring\Grupo' => 'Grupo',
-                        '\App\Models\spring\Postagem' => 'Postagem',
-                    ]),
-                Select::make('ordenavel_id')
+                    ->options(fn () => Postagem::pluck('titulo', 'id')->toArray()),
+                Select::make('texto_id')
                     ->reactive()
+                    ->hidden(fn ($get) => $get('postagem_id') === null || $get('postagem_id') === '')
                     ->options(function ($get) {
-                        if ($get('ordenavel_type') === '\App\Models\spring\Grupo') {
-                            return Grupo::where('is_grupo', '!=', true)->pluck('titulo', 'id')->toArray();
-                        } elseif ($get('ordenavel_type') === '\App\Models\spring\Postagem') {
-                            return Postagem::where('is_grupo', '!=', true)->pluck('titulo', 'id')->toArray();
-                        }
+                        return Postagem::find($get('postagem_id'))->with('textos')->first()->textos->pluck('titulo', 'id')->toArray();
                     })
             ])->columns(1);
     }
@@ -54,9 +50,8 @@ class OrdenacaoGeralResource extends Resource
             ->columns([
                 TextColumn::make('id'),
                 TextColumn::make('ordem'),
-                TextColumn::make('ordenavel_type')
-                    ->state(fn ($record) => $record->ordenavel_type === "\App\Models\spring\Grupo" ? 'Grupo' : 'Ordem'),
-                TextColumn::make('ordenavel_id'),
+                TextColumn::make('postagem.titulo'),
+                TextColumn::make('texto.titulo')
             ])
             ->filters([
                 //
@@ -81,9 +76,9 @@ class OrdenacaoGeralResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListOrdenacaoGerals::route('/'),
-            'create' => Pages\CreateOrdenacaoGeral::route('/create'),
-            'edit' => Pages\EditOrdenacaoGeral::route('/{record}/edit'),
+            'index' => Pages\ListOrdenacaoTextos::route('/'),
+            'create' => Pages\CreateOrdenacaoTextos::route('/create'),
+            'edit' => Pages\EditOrdenacaoTextos::route('/{record}/edit'),
         ];
     }
 }

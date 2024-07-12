@@ -30,4 +30,13 @@ class Postagem extends Model
     {
         return $this->morphOne(OrdenacaoGruposPostagens::class, 'ordenavel');
     }
+
+    public function textos()
+    {
+        return $this->hasMany(Texto::class, 'postagem_id');
+    }
+
+    public function ordenacao_textos(){
+        return $this->hasOne(OrdenacaoTextos::class, 'postagem_id');
+    }
 }
