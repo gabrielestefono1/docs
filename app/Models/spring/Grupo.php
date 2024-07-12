@@ -34,4 +34,14 @@ class Grupo extends Model
     {
         return $this->morphOne(OrdenacaoGeral::class, 'ordenavel');
     }
+
+    public function ordenacao()
+    {
+        return $this->morphOne(OrdenacaoGruposPostagens::class, 'ordenavel');
+    }
+
+    public function ordenacaoGrupo()
+    {
+        return $this->hasOne(OrdenacaoGruposPostagens::class, 'grupo_id');
+    }
 }

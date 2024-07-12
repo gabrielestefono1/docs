@@ -6,12 +6,14 @@ use App\Filament\Resources\Spring\OrdenacaoGruposPostagensResource\Pages;
 use App\Filament\Resources\Spring\OrdenacaoGruposPostagensResource\RelationManagers;
 use App\Models\spring\Grupo;
 use App\Models\Spring\OrdenacaoGruposPostagens;
+use App\Models\spring\Postagem;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -27,19 +29,29 @@ class OrdenacaoGruposPostagensResource extends Resource
         return $form
             ->schema([
                 Select::make('grupo_id')
-                    ->options(fn () => Grupo::pluck('titulo', 'id')->toArray()),
+                    ->reactive()
+                    ->label('Grupo')
+                    ->options(fn () => Grupo::where('is_grupo', true)->pluck('titulo', 'id')->toArray()),
                 Select::make('ordenavel_type')
+                    ->label("Associado à:")
                     ->reactive()
                     ->options([
                         '\App\Models\spring\Grupo' => 'Grupo',
                         '\App\Models\spring\Postagem' => 'Postagem'
                     ]),
                 Select::make('ordenavel_id')
-                    ->options(function($get){
-                        if($get('\App\Models\spring\Grupo')){
-                            
+                    ->reactive()
+                    ->options(function ($get) {
+                        if ($get('ordenavel_type') == '\App\Models\spring\Grupo' && ($get('grupo_id') !== null && $get('grupo_id') !== '')) {
+                            return Grupo::where('is_grupo', true)->where('id', '!=', $get('grupo_id'))->pluck('titulo', 'id')->toArray();
+                        } elseif ($get('ordenavel_type') == '\App\Models\spring\Postagem' && ($get('grupo_id') !== null && $get('grupo_id') !== '')) {
+                            return Postagem::where('is_grupo', true)->where('id', '!=', $get('grupo_id'))->pluck('titulo', 'id')->toArray();
                         }
+                        return [];
                     })->searchable()
+                    ->hint("Escolha um Grupo e uma associação para que os valores aqui fiquem disponíveis"),
+                TextInput::make('ordem')
+                    ->type('number')
             ])->columns(1);
     }
 
@@ -47,7 +59,12 @@ class OrdenacaoGruposPostagensResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('id'),
+                TextColumn::make('grupo.titulo'),
+                TextColumn::make('ordenavel_type')
+                    ->state(fn ($record) => $record->ordenavel_type === "\App\Models\spring\Grupo" ? 'Grupo' : 'Postagem'),
+                    TextColumn::make('ordenavel.titulo'),
+                TextColumn::make('ordem')
             ])
             ->filters([
                 //

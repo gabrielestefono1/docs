@@ -25,4 +25,9 @@ class Postagem extends Model
     {
         return $this->morphOne(OrdenacaoGeral::class, 'ordenavel');
     }
+
+    public function ordenacao()
+    {
+        return $this->morphOne(OrdenacaoGruposPostagens::class, 'ordenavel');
+    }
 }
