@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ordenacao_grupos_postagens', function (Blueprint $table) {
+        Schema::create('spring.ordenacao_grupos_postagens', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('grupo_id')->unique()->constrained('grupos')->onDelete('cascade');
-            $table->foreignId('postagem_id')->unique()->constrained('postagens')->onDelete('cascade');
+            $table->foreignId('grupo_id')->constrained('spring.grupos')->onDelete('cascade');
+            $table->morphs('ordenavel');
             $table->integer('ordem');
             $table->timestamps();
         });
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ordenacao_grupos_postagens');
+        Schema::dropIfExists('spring.ordenacao_grupos_postagens');
     }
 };

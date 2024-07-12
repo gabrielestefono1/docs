@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->text('descricao');
-            $table->foreignId('grupo_id')->constrained('spring.grupos')->onDelete('cascade');
+            $table->boolean('is_grupo');
+            $table->foreignId('grupo_id')->nullable()->constrained('spring.grupos')->onDelete('cascade');
             $table->timestamps();
         });
     }

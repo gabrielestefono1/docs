@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->text('descricao');
-            $table->enum('tipo', ['grupo', 'ordem']);
+            $table->boolean('is_grupo');
             $table->foreignId('grupo_pai_id')->nullable()->constrained('spring.grupos')->onDelete('cascade');
             $table->timestamps();
         });

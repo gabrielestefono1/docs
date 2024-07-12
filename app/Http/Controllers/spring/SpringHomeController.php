@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\spring;
 
 use App\Http\Controllers\Controller;
-use App\Models\spring\Conteudo;
-use App\Models\spring\Grupo;
+use App\Models\spring\OrdenacaoGeral;
 use Inertia\Inertia;
 
 
@@ -12,8 +11,7 @@ class SpringHomeController extends Controller
 {
     public function index()
     {
-        $conteudo = Grupo::with('conteudo')->find(10);
-        dd($conteudo->conteudo->ordem);
+        dd(OrdenacaoGeral::with('ordenavel')->get());
         return Inertia::render('Index', [
             // 'grupos' => $grupos
         ]);

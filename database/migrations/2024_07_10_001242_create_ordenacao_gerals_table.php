@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ordenacao_gerals', function (Blueprint $table) {
+        Schema::create('spring.ordenacao_gerals', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('entidade_id');
-            $table->string('tipo_entidade')->unique();
+            $table->morphs('ordenavel');
             $table->integer('ordem')->unique();
             $table->timestamps();
         });
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ordenacao_gerals');
+        Schema::dropIfExists('spring.ordenacao_gerals');
     }
 };

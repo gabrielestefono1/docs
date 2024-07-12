@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources\Spring;
 
-use App\Filament\Resources\Spring\GrupoResource\Pages;
-use App\Models\Spring\Grupo;
+use App\Filament\Resources\Spring\PostagemResource\Pages;
+use App\Models\spring\Grupo;
+use App\Models\Spring\Postagem;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -15,16 +16,14 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class GrupoResource extends Resource
+class PostagemResource extends Resource
 {
-    protected static ?string $model = Grupo::class;
+    protected static ?string $model = Postagem::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
-        $existeId = isset($form->model->id);
-
         return $form
             ->schema([
                 TextInput::make('titulo')
@@ -34,15 +33,13 @@ class GrupoResource extends Resource
                 Toggle::make('is_grupo')
                     ->label("É associado a um grupo?")
                     ->reactive(),
-                Select::make('grupo_pai_id')
+                Select::make('grupo_id')
                     ->reactive()
                     ->hidden(fn ($get) => $get('is_grupo') !== true)
                     ->label("Qual grupo?")
-                    ->options(function ($get) use ($existeId, $form) {
+                    ->options(function ($get){
                         if ($get('is_grupo') === true) {
-                            return Grupo::when($existeId , function($query) use ($form){
-                                return $query->where('id', '!=', $form->model->id);
-                            })->pluck('titulo', 'id')->toArray();
+                            return Grupo::pluck('titulo', 'id')->toArray();
                         }
                     })
             ])->columns(1);
@@ -86,9 +83,9 @@ class GrupoResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListGrupos::route('/'),
-            'create' => Pages\CreateGrupo::route('/create'),
-            'edit' => Pages\EditGrupo::route('/{record}/edit'),
+            'index' => Pages\ListPostagems::route('/'),
+            'create' => Pages\CreatePostagem::route('/create'),
+            'edit' => Pages\EditPostagem::route('/{record}/edit'),
         ];
     }
 }
