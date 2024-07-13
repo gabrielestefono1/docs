@@ -55,7 +55,7 @@ class OrdenacaoGeralResource extends Resource
                 TextColumn::make('id'),
                 TextColumn::make('ordem'),
                 TextColumn::make('ordenavel_type')
-                    ->state(fn ($record) => $record->ordenavel_type === "\App\Models\spring\Grupo" ? 'Grupo' : 'Ordem'),
+                    ->state(fn ($record) => $record->ordenavel_type === "\App\Models\spring\Grupo" ? 'Grupo' : 'Postagem'),
                 TextColumn::make('ordenavel_id'),
             ])
             ->filters([

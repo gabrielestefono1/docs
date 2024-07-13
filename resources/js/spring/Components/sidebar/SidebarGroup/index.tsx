@@ -1,9 +1,16 @@
+import { Ordenavel } from "@/spring/interfaces/OrdenacaoGeral";
 import SidebarItem from "../SidebarItem";
 import styles from "./SidebarGroup.module.scss";
 
+interface SidebarItemProps{
+    titulo: string;
+    active?: boolean;
+}
+
 export default function SidebarGroup({
     active = false,
-}: Readonly<{ active?: boolean }>) {
+    titulo,
+}: Readonly<SidebarItemProps>) {
     return (
         <>
             <button
@@ -12,13 +19,13 @@ export default function SidebarGroup({
                 }`}
             >
                 <div></div>
-                <p>Core Technologies</p>
+                <p>{titulo}</p>
             </button>
-            {active && (
+            {/* {active && filhos.map(filho => (
                 <div className={styles.sidebarGroupItems}>
-                    <SidebarItem />
+                    <SidebarItem titulo=""/>
                 </div>
-            )}
+            ))} */}
         </>
     );
 }

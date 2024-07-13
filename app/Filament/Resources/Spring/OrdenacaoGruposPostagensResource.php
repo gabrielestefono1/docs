@@ -29,7 +29,7 @@ class OrdenacaoGruposPostagensResource extends Resource
                 Select::make('grupo_id')
                     ->reactive()
                     ->label('Grupo')
-                    ->options(fn () => Grupo::where('is_grupo', true)->pluck('titulo', 'id')->toArray()),
+                    ->options(fn () => Grupo::pluck('titulo', 'id')->toArray()),
                 Select::make('ordenavel_type')
                     ->label("Associado à:")
                     ->reactive()

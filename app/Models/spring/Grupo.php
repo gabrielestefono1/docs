@@ -37,11 +37,11 @@ class Grupo extends Model
 
     public function ordenacao()
     {
-        return $this->morphOne(OrdenacaoGruposPostagens::class, 'ordenavel');
+        return $this->morphMany(OrdenacaoGruposPostagens::class, 'ordenavel');
     }
 
     public function ordenacaoGrupo()
     {
-        return $this->hasOne(OrdenacaoGruposPostagens::class, 'grupo_id');
+        return $this->hasMany(OrdenacaoGruposPostagens::class, 'grupo_id');
     }
 }

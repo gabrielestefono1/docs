@@ -28,7 +28,7 @@ class Postagem extends Model
 
     public function ordenacao()
     {
-        return $this->morphOne(OrdenacaoGruposPostagens::class, 'ordenavel');
+        return $this->morphMany(OrdenacaoGruposPostagens::class, 'ordenavel');
     }
 
     public function textos()

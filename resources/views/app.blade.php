@@ -1,3 +1,7 @@
+<?php
+    use Illuminate\Support\Facades\Request;
+?>
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -13,7 +17,18 @@
         <!-- Scripts -->
         @routes
         @viteReactRefresh
-        @vite(['resources/js/app.tsx', "resources/js/react/Pages/{$page['component']}.tsx"])
+        @php
+            $projeto = "";
+            switch (Request::getHost()) {
+                case 'webestcoding.local':
+                    $projeto = "spring";
+                    break;
+                default:
+                    $projeto = "react";
+                    break;
+            }
+        @endphp
+        @vite(['resources/js/app.tsx', "resources/js/$projeto/Pages/{$page['component']}.tsx"])
         @inertiaHead
     </head>
     <body class="font-sans antialiased">

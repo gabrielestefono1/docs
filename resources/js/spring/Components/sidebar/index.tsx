@@ -1,8 +1,12 @@
+import { OrdemContext } from "@/spring/contexts/OrdemContext";
 import styles from "./sidebar.module.scss";
-import SidebarGroup from "./SidebarGroup";
+import { useContext } from "react";
 import SidebarItem from "./SidebarItem";
+import SidebarGroup from "./SidebarGroup";
 
 export default function Sidebar() {
+    const { data } = useContext(OrdemContext);
+
     return (
         <div className={styles.sidebar}>
             <div>
@@ -20,11 +24,20 @@ export default function Sidebar() {
                 <span>CTRL + K</span>
             </button>
             <div>
-                <SidebarItem />
-                <SidebarGroup />
-                <SidebarGroup />
-                <SidebarGroup />
-                <SidebarGroup />
+                {data.map((ordem) =>
+                    ordem.ordenavel_type ==
+                    "\\App\\Models\\spring\\Postagem" ? (
+                        <SidebarItem
+                            key={ordem.id}
+                            titulo={ordem.ordenavel.titulo}
+                        />
+                    ) : (
+                        <SidebarGroup
+                            key={ordem.id}
+                            titulo={ordem.ordenavel.titulo}
+                        />
+                    )
+                )}
             </div>
         </div>
     );

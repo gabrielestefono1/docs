@@ -39,10 +39,8 @@ class PostagemResource extends Resource
                     ->reactive()
                     ->hidden(fn ($get) => $get('is_grupo') !== true)
                     ->label("Qual grupo?")
-                    ->options(function ($get){
-                        if ($get('is_grupo') === true) {
-                            return Grupo::pluck('titulo', 'id')->toArray();
-                        }
+                    ->options(function () {
+                        return Grupo::pluck('titulo', 'id')->toArray();
                     })
             ])->columns(1);
     }
