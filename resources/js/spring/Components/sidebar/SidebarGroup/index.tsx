@@ -1,15 +1,17 @@
-import { Ordenavel } from "@/spring/interfaces/OrdenacaoGeral";
+import { OrdenacaoGrupo, Ordenavel } from "@/spring/interfaces/OrdenacaoGeral";
 import SidebarItem from "../SidebarItem";
 import styles from "./SidebarGroup.module.scss";
 
-interface SidebarItemProps{
+interface SidebarItemProps {
     titulo: string;
     active?: boolean;
+    filhos?: OrdenacaoGrupo[];
 }
 
 export default function SidebarGroup({
-    active = false,
+    active = true,
     titulo,
+    filhos = [],
 }: Readonly<SidebarItemProps>) {
     return (
         <>
@@ -21,11 +23,29 @@ export default function SidebarGroup({
                 <div></div>
                 <p>{titulo}</p>
             </button>
-            {/* {active && filhos.map(filho => (
-                <div className={styles.sidebarGroupItems}>
-                    <SidebarItem titulo=""/>
-                </div>
-            ))} */}
+            {active &&
+                filhos.map((filho) => {
+                    if (
+                        filho.ordenavel_type ===
+                        "\\App\\Models\\spring\\Postagem"
+                    ) {
+                        return (
+                            <div className={styles.sidebarGroupItems} key={`${filho.created_at}`}>
+                                <SidebarItem
+                                    titulo={filho.ordenavel?.titulo ?? ""}
+                                />
+                            </div>
+                        );
+                    }
+                    return (
+                        <div className={styles.sidebarGroupItems} key={`${filho.created_at}`}>
+                            <SidebarGroup
+                                titulo={filho.ordenavel?.titulo ?? ""}
+                                filhos={filho.ordenavel?.ordenacao_grupo}
+                            />
+                        </div>
+                    );
+                })}
         </>
     );
 }

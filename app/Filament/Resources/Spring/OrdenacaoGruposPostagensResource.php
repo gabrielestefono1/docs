@@ -18,7 +18,15 @@ class OrdenacaoGruposPostagensResource extends Resource
 {
     protected static ?string $model = OrdenacaoGruposPostagens::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 4;
+
+    protected static ?string $breadcrumb = "Ordenação Subgrupos Postagens";
+
+    protected static ?string $label = "Ordenação Subgrupos Postagens";
+
+    protected static ?string $pluralLabel = "Ordenação Subgrupos Postagens";
+
+    protected static ?string $navigationIcon = 'heroicon-o-arrows-up-down';
 
     protected static ?string $navigationGroup = "Spring";
 
@@ -27,11 +35,11 @@ class OrdenacaoGruposPostagensResource extends Resource
         return $form
             ->schema([
                 Select::make('grupo_id')
+                    ->label('Grupo "Pai"')
                     ->reactive()
-                    ->label('Grupo')
                     ->options(fn () => Grupo::pluck('titulo', 'id')->toArray()),
                 Select::make('ordenavel_type')
-                    ->label("Associado à:")
+                    ->label("É associado à:")
                     ->reactive()
                     ->options([
                         '\App\Models\spring\Grupo' => 'Grupo',

@@ -20,7 +20,15 @@ class PostagemResource extends Resource
 {
     protected static ?string $model = Postagem::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 2;
+
+    protected static ?string $breadcrumb = "Postagens";
+
+    protected static ?string $label = "Postagens";
+    
+    protected static ?string $pluralLabel = "Postagens";
+
+    protected static ?string $navigationIcon = 'heroicon-o-cursor-arrow-ripple';
 
     protected static ?string $navigationGroup = "Spring";
 

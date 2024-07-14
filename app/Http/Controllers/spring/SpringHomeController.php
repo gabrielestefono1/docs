@@ -10,17 +10,16 @@ use Inertia\Inertia;
 
 class SpringHomeController extends Controller
 {
-
-    private function loadRelations($ordem)
+    private function loadRelations($grupo)
     {
-        if ($ordem->ordenavel_type === '\App\Models\spring\Grupo') {
-            $grupo = $ordem->ordenavel;
-            $ordem = $grupo->load('ordenacaoGrupo');
-            if (isset($ordem->ordenacaoGrupo)) {
-                $ordenacaoGrupos = $ordem->ordenacaoGrupo;
-                foreach ($ordenacaoGrupos as $ordenacaoGrupo) {
-                    $newGrupo = $ordenacaoGrupo->load('ordenavel')->ordenavel;
+        $ordens = $grupo->load('ordenacaoGrupo')->ordenacaoGrupo;
+        if (isset($ordens)) {
+            foreach ($ordens as $ordem) {
+                if($ordem->ordenavel_type === '\App\Models\spring\Grupo'){
+                    $newGrupo = $ordem->load('ordenavel')->ordenavel;
                     $this->loadRelations($newGrupo);
+                }else{
+                    $ordem->load('ordenavel');
                 }
             }
         }
@@ -29,7 +28,9 @@ class SpringHomeController extends Controller
     {
         $ordens = OrdenacaoGeral::with('ordenavel')->get();
         foreach ($ordens as $ordem) {
-            $this->loadRelations($ordem);
+            if ($ordem->ordenavel_type === '\App\Models\spring\Grupo') {
+                $this->loadRelations($ordem->ordenavel);
+            }
         }
 
         return Inertia::render('Index', [
@@ -39,6 +40,15 @@ class SpringHomeController extends Controller
 
     public function show($slug)
     {
-        return Inertia::render('Docs');
+        $ordens = OrdenacaoGeral::with('ordenavel')->get();
+        foreach ($ordens as $ordem) {
+            if ($ordem->ordenavel_type === '\App\Models\spring\Grupo') {
+                $this->loadRelations($ordem->ordenavel);
+            }
+        }
+
+        return Inertia::render('Docs', [
+            'ordens' => $ordens
+        ]);
     }
 }

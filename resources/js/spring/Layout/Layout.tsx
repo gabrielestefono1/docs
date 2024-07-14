@@ -1,5 +1,5 @@
 import { Head } from "@inertiajs/react";
-import { ReactNode, useContext } from "react";
+import { ReactNode, useContext, useEffect } from "react";
 import Header from "../Components/header";
 import styles from "./layout.module.scss";
 import Sidebar from "../Components/sidebar";
@@ -16,7 +16,9 @@ export default function Layout({
     body.className = "spring";
 
     const { setData } = useContext(OrdemContext);
-    setData(ordens);
+    useEffect(() => {
+        setData(ordens);
+    }, [setData]);
     return (
         <>
             <Head title={title} />

@@ -19,7 +19,15 @@ class GrupoResource extends Resource
 {
     protected static ?string $model = Grupo::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 1;
+
+    protected static ?string $breadcrumb = "Grupos";
+
+    protected static ?string $label = "Grupos";
+
+    protected static ?string $pluralLabel = "Grupos";
+
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     protected static ?string $navigationGroup = "Spring";
 

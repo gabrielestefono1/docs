@@ -24,7 +24,7 @@ export interface OrdenacaoGrupo {
     grupo_id: number | null;
     id: number;
     ordem: number;
-    ordenavel?: Ordem;
+    ordenavel?: Ordenavel;
     ordenavel_id: number;
     ordenavel_type: string;
     updated_at: string;

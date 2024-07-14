@@ -35,6 +35,7 @@ export default function Sidebar() {
                         <SidebarGroup
                             key={ordem.id}
                             titulo={ordem.ordenavel.titulo}
+                            filhos={ordem.ordenavel.ordenacao_grupo}
                         />
                     )
                 )}

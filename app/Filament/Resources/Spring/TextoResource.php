@@ -22,7 +22,15 @@ class TextoResource extends Resource
 {
     protected static ?string $model = Texto::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 5;
+
+    protected static ?string $breadcrumb = "Textos";
+
+    protected static ?string $label = "Textos";
+
+    protected static ?string $pluralLabel = "Textos";
+
+    protected static ?string $navigationIcon = 'heroicon-o-cursor-arrow-rays';
 
     protected static ?string $navigationGroup = "Spring";
 

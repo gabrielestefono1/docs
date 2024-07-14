@@ -22,7 +22,15 @@ class OrdenacaoTextosResource extends Resource
 {
     protected static ?string $model = OrdenacaoTextos::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 6;
+
+    protected static ?string $breadcrumb = "Ordenação Textos";
+
+    protected static ?string $label = "Ordenação Textos";
+    
+    protected static ?string $pluralLabel = "Ordenação Textos";
+
+    protected static ?string $navigationIcon = 'heroicon-o-arrows-up-down';
 
     protected static ?string $navigationGroup = "Spring";
 

@@ -20,7 +20,15 @@ class OrdenacaoGeralResource extends Resource
 {
     protected static ?string $model = OrdenacaoGeral::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 3;
+
+    protected static ?string $breadcrumb = "Ordenação Home";
+
+    protected static ?string $label = "Ordenação Home";
+    
+    protected static ?string $pluralLabel = "Ordenação Home";
+
+    protected static ?string $navigationIcon = 'heroicon-o-arrows-up-down';
 
     protected static ?string $navigationGroup = "Spring";
 
