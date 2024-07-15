@@ -8,7 +8,6 @@ export default function Layout({
 }: Readonly<{ children: ReactNode; title: string }>) {
     const body = document.body;
     body.className = "react";
-    console.log('REACT')
     return (
         <>
             <Head title={title} />

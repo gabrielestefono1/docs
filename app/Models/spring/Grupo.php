@@ -10,7 +10,7 @@ class Grupo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo', 'descricao', 'grupo_pai_id', 'is_grupo'];
+    protected $fillable = ['titulo', 'descricao', 'grupo_pai_id', 'is_grupo', 'slug'];
 
     protected $table = 'spring.grupos';
 

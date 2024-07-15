@@ -51,7 +51,7 @@ class OrdenacaoGruposPostagensResource extends Resource
                         if ($get('ordenavel_type') == '\App\Models\spring\Grupo' && ($get('grupo_id') !== null && $get('grupo_id') !== '')) {
                             return Grupo::where('is_grupo', true)->where('id', '!=', $get('grupo_id'))->pluck('titulo', 'id')->toArray();
                         } elseif ($get('ordenavel_type') == '\App\Models\spring\Postagem' && ($get('grupo_id') !== null && $get('grupo_id') !== '')) {
-                            return Postagem::where('is_grupo', true)->where('id', '!=', $get('grupo_id'))->pluck('titulo', 'id')->toArray();
+                            return Postagem::where('is_grupo', true)->pluck('titulo', 'id')->toArray();
                         }
                         return [];
                     })->searchable()

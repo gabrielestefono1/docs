@@ -9,7 +9,7 @@ class Texto extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo', 'descricao', 'postagem_id'];
+    protected $fillable = ['titulo', 'descricao', 'postagem_id', 'slug'];
 
     protected $table = 'spring.textos';
 

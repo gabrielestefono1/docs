@@ -29,10 +29,12 @@ export default function Sidebar() {
                     "\\App\\Models\\spring\\Postagem" ? (
                         <SidebarItem
                             key={ordem.id}
+                            slug={ordem.ordenavel.slug}
                             titulo={ordem.ordenavel.titulo}
                         />
                     ) : (
                         <SidebarGroup
+                            slug={ordem.ordenavel.slug}
                             key={ordem.id}
                             titulo={ordem.ordenavel.titulo}
                             filhos={ordem.ordenavel.ordenacao_grupo}

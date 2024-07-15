@@ -9,7 +9,7 @@ class Postagem extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo', 'descricao', 'grupo_id', 'is_grupo'];
+    protected $fillable = ['titulo', 'descricao', 'grupo_id', 'is_grupo', 'slug'];
 
     protected $table = 'spring.postagems';
 

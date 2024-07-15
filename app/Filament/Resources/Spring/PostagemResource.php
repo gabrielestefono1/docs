@@ -25,7 +25,7 @@ class PostagemResource extends Resource
     protected static ?string $breadcrumb = "Postagens";
 
     protected static ?string $label = "Postagens";
-    
+
     protected static ?string $pluralLabel = "Postagens";
 
     protected static ?string $navigationIcon = 'heroicon-o-cursor-arrow-ripple';
@@ -40,6 +40,8 @@ class PostagemResource extends Resource
                     ->label("Título do novo grupo"),
                 MarkdownEditor::make('descricao')
                     ->label("Descrição do grupo"),
+                TextInput::make('slug')
+                    ->label("Slug da Postagem"),
                 Toggle::make('is_grupo')
                     ->label("É associado a um grupo?")
                     ->reactive(),

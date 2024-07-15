@@ -16,6 +16,7 @@ export interface Ordenavel {
     is_grupo: boolean;
     ordenacao_grupo?: OrdenacaoGrupo[];
     titulo: string;
+    slug: string;
     updated_at: string;
 }
 

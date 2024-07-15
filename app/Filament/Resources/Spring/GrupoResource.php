@@ -41,6 +41,8 @@ class GrupoResource extends Resource
                     ->label("Título do novo grupo"),
                 MarkdownEditor::make('descricao')
                     ->label("Descrição do grupo"),
+                TextInput::make('slug')
+                    ->label("Slug do Grupo"),
                 Toggle::make('is_grupo')
                     ->label("É associado a um grupo?")
                     ->reactive(),
@@ -50,7 +52,7 @@ class GrupoResource extends Resource
                     ->label("Qual grupo?")
                     ->options(function ($get) use ($existeId, $form) {
                         if ($get('is_grupo') === true) {
-                            return Grupo::when($existeId , function($query) use ($form){
+                            return Grupo::when($existeId, function ($query) use ($form) {
                                 return $query->where('id', '!=', $form->model->id);
                             })->pluck('titulo', 'id')->toArray();
                         }

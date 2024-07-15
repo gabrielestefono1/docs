@@ -10,6 +10,7 @@
     display: flex;
     width: 100%;
     align-items: center;
+    position: relative;
 
     > div {
         background-image: url("./chevron-white.svg");
@@ -20,7 +21,7 @@
         background-size: contain;
         background-position: 50%;
         position: absolute;
-        left: 10px;
+        left: 5px;
     }
 
     &:hover {
