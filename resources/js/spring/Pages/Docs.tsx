@@ -1,20 +1,21 @@
 import Layout from "../Layout/Layout";
 import Main from "../Components/main";
 import { OrdemContextProvider } from "../contexts/OrdemContext";
-import { Ordem } from "../interfaces/OrdenacaoGeral";
+import { Ordem, Ordenavel } from "../interfaces/OrdenacaoGeral";
 
 interface ReactProps {
     ordens: Ordem[];
+    objetoAtual: Ordenavel;
 }
 
-export default function Docs({ ordens }: Readonly<ReactProps>) {
+export default function Docs({ ordens, objetoAtual }: Readonly<ReactProps>) {
     return (
         <OrdemContextProvider>
             <Layout
                 title="Spring Framework Documentation :: Spring Framework"
                 ordens={ordens}
             >
-                <Main />
+                <Main objetoAtual={objetoAtual}/>
             </Layout>
         </OrdemContextProvider>
     );

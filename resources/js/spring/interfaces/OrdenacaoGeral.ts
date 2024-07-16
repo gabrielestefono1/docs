@@ -8,6 +8,7 @@ export interface Ordem {
     updated_at: string;
 }
 
+// Grupo ou postagem
 export interface Ordenavel {
     created_at: string;
     descricao: string;

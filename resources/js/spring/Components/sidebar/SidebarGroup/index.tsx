@@ -51,7 +51,6 @@ export default function SidebarGroup({
                             </div>
                         );
                     }
-                    console.log(`${filho.ordenavel?.slug ?? ""}`);
                     return (
                         <div
                             className={styles.sidebarGroupItems}
