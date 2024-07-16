@@ -47,7 +47,7 @@ class OrdenacaoTextosResource extends Resource
                     ->reactive()
                     ->hidden(fn ($get) => $get('postagem_id') === null || $get('postagem_id') === '')
                     ->options(function ($get) {
-                        return Postagem::find($get('postagem_id'))->with('textos')->first()->textos->pluck('titulo', 'id')->toArray();
+                        return Texto::where('postagem_id', $get('postagem_id'))->pluck('titulo', 'id')->toArray();
                     })
             ])->columns(1);
     }

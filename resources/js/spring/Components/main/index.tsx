@@ -4,13 +4,14 @@ import { useContext } from "react";
 import { OrdemContext } from "@/spring/contexts/OrdemContext";
 import Breadcrumb from "./Breadcrumb";
 import ReactMarkdown from "react-markdown";
-import { Ordenavel } from "@/spring/interfaces/OrdenacaoGeral";
+import { Ordenavel, TextoOrdenacao } from "@/spring/interfaces/OrdenacaoGeral";
 
-interface MainProps{
+interface MainProps {
     objetoAtual: Ordenavel;
+    textos?: TextoOrdenacao[];
 }
 
-export default function Main({objetoAtual}: Readonly<MainProps>) {
+export default function Main({ objetoAtual, textos }: Readonly<MainProps>) {
     const { data } = useContext(OrdemContext);
     const { url } = usePage();
     const itemAtual = data.find((el) => url.includes(el.ordenavel.slug));
@@ -27,7 +28,12 @@ export default function Main({objetoAtual}: Readonly<MainProps>) {
             <div>
                 <h1>{objetoAtual.titulo}</h1>
                 <ReactMarkdown>{objetoAtual.descricao}</ReactMarkdown>
-                <ReactMarkdown>{objetoAtual.descricao}</ReactMarkdown>
+                {textos?.map((texto) => (
+                    <div key={texto.texto.id}>
+                        <h2>{texto.texto.titulo}</h2>
+                        <ReactMarkdown>{texto.texto.descricao}</ReactMarkdown>
+                    </div>
+                ))}
             </div>
         </div>
     );

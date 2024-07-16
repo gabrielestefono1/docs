@@ -30,15 +30,23 @@ div.main {
         padding-top: 0.75rem;
         margin-inline: 2.25rem;
 
-        > h1 {
+        h1 {
             font-size: 2.625rem;
             font-weight: 500;
             color: #cecfd1;
         }
 
-        > p{
+        h2 {
+            font-size: 1.625rem;
+            margin-top: calc(8px + 36px);
+            font-weight: 500;
+            color: #cecfd1;
+        }
+
+        p {
             font-size: 1.0625rem;
             margin-top: 1.125rem;
+            line-height: 1.7rem;
         }
     }
 }

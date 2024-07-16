@@ -31,3 +31,22 @@ export interface OrdenacaoGrupo {
     ordenavel_type: string;
     updated_at: string;
 }
+
+export interface TextoOrdenacao {
+    created_at: string;
+    id: number;
+    ordem: number;
+    postagem_id: number;
+    texto_id: number;
+    updated_at: string;
+    texto: Texto;
+}
+
+export interface Texto {
+    created_at: string;
+    descricao: string;
+    id: number;
+    postagem_id: number;
+    titulo: string;
+    updated_at: string;
+}

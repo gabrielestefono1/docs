@@ -52,8 +52,11 @@ class SpringHomeController extends Controller
             }
         }
 
+        $objetoAtual = Postagem::first();
+
         return Inertia::render('Index', [
-            'ordens' => $ordens
+            'ordens' => $ordens,
+            'objetoAtual' => $objetoAtual
         ]);
     }
 
@@ -67,10 +70,15 @@ class SpringHomeController extends Controller
         }
 
         $objetoAtual = $this->buscarTexto($slug);
+        $textos = null;
+        if($objetoAtual instanceof Postagem){
+            $textos = $objetoAtual->ordenacao_textos()->orderBy('ordem')->get()->load('texto');
+        }
 
         return Inertia::render('Docs', [
             'ordens' => $ordens,
-            'objetoAtual' => $objetoAtual
+            'objetoAtual' => $objetoAtual,
+            'textos' => $textos
         ]);
     }
 }
