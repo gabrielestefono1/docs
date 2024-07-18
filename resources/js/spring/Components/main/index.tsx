@@ -1,6 +1,6 @@
 import { Link, usePage } from "@inertiajs/react";
 import styles from "./index.module.scss";
-import { useContext } from "react";
+import { Fragment, useContext } from "react";
 import { OrdemContext } from "@/spring/contexts/OrdemContext";
 import Breadcrumb from "./Breadcrumb";
 import ReactMarkdown from "react-markdown";
@@ -29,10 +29,10 @@ export default function Main({ objetoAtual, textos }: Readonly<MainProps>) {
                 <h1>{objetoAtual.titulo}</h1>
                 <ReactMarkdown>{objetoAtual.descricao}</ReactMarkdown>
                 {textos?.map((texto) => (
-                    <div key={texto.texto.id}>
+                    <Fragment key={texto.texto.id}>
                         <h2>{texto.texto.titulo}</h2>
                         <ReactMarkdown>{texto.texto.descricao}</ReactMarkdown>
-                    </div>
+                    </Fragment>
                 ))}
             </div>
         </div>
