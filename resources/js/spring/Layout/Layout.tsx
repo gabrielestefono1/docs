@@ -6,6 +6,7 @@ import Sidebar from "../Components/sidebar";
 import InfoBar from "../Components/infoBar";
 import { OrdemContext } from "../contexts/OrdemContext";
 import { Ordem } from "../interfaces/OrdenacaoGeral";
+import favicon from '../images/favicon.ico';
 
 export default function Layout({
     children,
@@ -18,6 +19,17 @@ export default function Layout({
     const { setData } = useContext(OrdemContext);
     useEffect(() => {
         setData(ordens);
+            const head = document.head;
+            let link = document.createElement("link");
+            let oldLink = document.getElementById("dynamic-link");
+            if (oldLink) {
+                head.removeChild(oldLink);
+            }
+            link.rel = "icon";
+            link.type = "image/x-icon";
+            link.href = favicon;
+            link.id = "dynamic-link";
+            head.appendChild(link);
     }, [setData]);
     return (
         <>

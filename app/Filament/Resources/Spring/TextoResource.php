@@ -53,7 +53,6 @@ class TextoResource extends Resource
             ->columns([
                 TextColumn::make('id'),
                 TextColumn::make('titulo'),
-                TextColumn::make('descricao'),
                 TextColumn::make('postagem.titulo')
             ])
             ->filters([

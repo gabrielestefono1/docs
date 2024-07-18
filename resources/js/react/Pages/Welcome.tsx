@@ -1,5 +1,3 @@
-import { Head } from '@inertiajs/react';
-import Header from '../Components/header';
 import Content from '../Components/content';
 import Layout from '../Layouts/Layout';
 
