@@ -1,7 +1,7 @@
 import { Head } from "@inertiajs/react";
-import styles from "./Layout.module.scss";
 import favicon from "../images/favicon.ico";
 import { ReactNode, useEffect } from "react";
+import Header from "./Header";
 
 export default function Layout({
     children,
@@ -27,8 +27,7 @@ export default function Layout({
     return (
         <>
             <Head title={title} />
-            {/* <Temporario/> */}
-            {/* <Header></Header> */}
+            <Header/>
             <main>{children}</main>
             {/* <Footer></Footer> */}
         </>
