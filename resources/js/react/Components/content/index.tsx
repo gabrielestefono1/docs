@@ -22,7 +22,7 @@ export default function Content({
                     </>
                 ))}
             </div>
-            <div></div>
+            <div className={styles.infoBar}></div>
         </section>
     );
 }

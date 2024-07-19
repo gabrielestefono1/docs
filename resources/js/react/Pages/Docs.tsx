@@ -55,10 +55,8 @@ export default function Docs({
     textos,
 }: Readonly<ReactProps>) {
     return (
-        <>
-            <Layout title="React Reference Overview U+2013 React">
-                <Content categorias={categorias} textos={textos} />
-            </Layout>
-        </>
+        <Layout title="React Reference Overview U+2013 React">
+            <Content categorias={categorias} textos={textos} />
+        </Layout>
     );
 }
