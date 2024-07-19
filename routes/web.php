@@ -29,3 +29,4 @@ use Inertia\Inertia;
 require __DIR__.'/auth.php';
 require __DIR__.'/react.php';
 require __DIR__.'/spring.php';
+require __DIR__.'/portfolio.php';
