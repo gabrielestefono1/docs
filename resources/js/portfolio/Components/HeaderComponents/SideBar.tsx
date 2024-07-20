@@ -1,14 +1,19 @@
-import { Link } from '@inertiajs/react';
-import estilo from './SideBar.module.scss';
+import { useEffect, useState } from "react";
+import estilo from "./SideBar.module.scss";
+import LinkCustom from "@/portfolio/Components/Shared/LinkCustom/LinkCustom";
 
-export default function SideBar(props: any) { 
-	return (
-		<div className={estilo.sidebar}>
-			<Link className={`${estilo.link} ${props.rotaAtual == "/" ? estilo.active : ""}`} href="/">Início</Link>
-			<Link className={`${estilo.link} ${props.rotaAtual == "/sobre" ? estilo.active : ""}`} href="/sobre">Sobre mim</Link>
-			<Link className={`${estilo.link} ${props.rotaAtual == "/projetos" ? estilo.active : ""}`} href="/projetos">Projetos</Link>
-			<Link className={`${estilo.link} ${props.rotaAtual == "/habilidades" ? estilo.active : ""}`} href="/habilidades">Habilidades</Link>
-			<Link className={`${estilo.link} ${props.rotaAtual == "/contato" ? estilo.active : ""}`} href="/contato">Contato</Link>
-		</div>
-	)
+interface SideBarProps {
+    open: boolean;
+}
+
+export default function SideBar({ open }: Readonly<SideBarProps>) {
+    return (
+        <div className={open ? estilo.sidebar : estilo.sidebarHidden}>
+            <LinkCustom text="Início" url="/" mobile />
+            <LinkCustom text="Sobre mim" url="/sobre" mobile />
+            <LinkCustom text="Projetos" url="/projetos" mobile />
+            <LinkCustom text="Habilidades" url="/habilidades" mobile />
+            <LinkCustom text="Contato" url="/contato" mobile />
+        </div>
+    );
 }

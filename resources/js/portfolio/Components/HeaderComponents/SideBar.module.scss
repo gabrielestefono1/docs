@@ -1,42 +1,49 @@
-@import '../../styles/variables.module';
+@import "../../styles/variables.module";
 
-.sidebar{
-	left: 0;
-	top: 3.8125rem;
-	width: 100vw;
-	height: calc(100vh - 3.8125rem);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	position: fixed;
-	z-index: 5;
-	background-color: white;
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
 
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
 
-	.link{
-		display: flex;
-		color: black;
-		text-decoration: none;
-		padding-top: 1.5625rem;
-		padding-bottom: 0.375rem;
-		width: 6.5rem;
-		justify-content: center;
+.sidebar {
+    left: 0;
+    top: 3.8125rem;
+    width: 100vw;
+    height: calc(100vh - 3.8125rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    z-index: 5;
+    background-color: white;
+    transition: 0.2s;
 
+    @include tabletPaisagem() {
+        display: none;
+    }
+}
 
-		&:hover {
-				box-sizing: border-box;
-				padding-bottom: 0.25rem;
-				border-bottom: 2px solid $cor-primaria;
-				opacity: 0.8;
-				color: $cor-primaria;
-			}
+.sidebarHidden {
+    left: 100vw;
+    top: 3.8125rem;
+    width: 100vw;
+    height: calc(100vh - 3.8125rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    z-index: 5;
+    background-color: white;
+    transition: 0.2s;
 
-	}
-
-	.active {
-		color: $cor-primaria;
-		padding-bottom: 0.25rem;
-		border-bottom: 2px solid $cor-primaria;
-	}
-
+    @include tabletPaisagem() {
+        display: none;
+    }
 }

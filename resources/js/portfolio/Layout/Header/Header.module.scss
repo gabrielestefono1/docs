@@ -1,0 +1,82 @@
+@import "../../styles/variables.module";
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+.header {
+    width: 100%;
+    height: 3.8125rem;
+    position: relative;
+
+    > div {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        @include LaptopHD {
+            justify-content: center;
+        }
+
+        div {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            @include LaptopHD {
+                width: calc(100% - 15rem);
+            }
+
+            .left {
+                height: 3.8125rem;
+                min-width: 8.25rem;
+                max-width: 8.25rem;
+                padding-left: 1rem;
+
+                a {
+                    width: 100%;
+                    height: 100%;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+
+            .right {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                font-size: 1.25rem;
+                gap: 3.125rem;
+                padding-right: 1rem;
+
+                @include tabletPaisagem {
+                    margin-right: 1rem;
+                }
+            }
+        }
+
+        &.fixed {
+            position: fixed;
+            z-index: 5;
+            top: 0;
+            left: 0;
+
+            &::before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+        }
+    }
+}

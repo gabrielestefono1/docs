@@ -1,0 +1,18 @@
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+.barsToogle {
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5625rem;
+    margin-inline: 1rem;
+    cursor: pointer;
+
+    @include tabletPaisagem() {
+        display: none;
+    }
+}
