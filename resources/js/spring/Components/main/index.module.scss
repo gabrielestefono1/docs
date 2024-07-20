@@ -50,5 +50,17 @@ div.main {
             margin-top: 1.125rem;
             line-height: 1.7rem;
         }
+
+        ul {
+            list-style-type: initial;
+            list-style-position: outside;
+            padding-left: 2.25rem;
+
+            > li {
+                padding-left: px;
+                margin-bottom: 0.5em;
+                line-height: 1.4;
+            }
+        }
     }
 }
