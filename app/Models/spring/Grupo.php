@@ -10,7 +10,17 @@ class Grupo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo', 'descricao', 'grupo_pai_id', 'is_grupo', 'slug'];
+    protected $fillable = [
+        'titulo',
+        'descricao',
+        'grupo_pai_id',
+        'is_grupo',
+        'slug',
+        'titulo_anterior',
+        'slug_anterior',
+        'titulo_proximo',
+        'slug_proximo',
+    ];
 
     protected $table = 'spring.grupos';
 
@@ -18,15 +28,18 @@ class Grupo extends Model
         'is_grupo' => 'boolean',
     ];
 
-    public function grupo(){
+    public function grupo()
+    {
         return $this->belongsTo(Grupo::class, 'grupo_pai_id');
     }
 
-    public function grupos(){
+    public function grupos()
+    {
         return $this->hasMany(Grupo::class, 'grupo_pai_id');
     }
 
-    public function postagem(){
+    public function postagem()
+    {
         return $this->hasMany(Postagem::class, 'grupo_id');
     }
 

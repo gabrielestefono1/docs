@@ -65,6 +65,60 @@ div.main {
 
         a {
             color: var(--spring-texto-secundario);
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        > div.navigation {
+            margin-top: 2.25rem;
+            border-top: 1px solid #ffffff33;
+            padding-top: 0.8438rem;
+            display: flex;
+            justify-content: space-between;
+
+            > div {
+                display: flex;
+                flex-direction: column;
+                padding-top: 0.8125rem;
+                padding-inline: 1.125rem;
+
+                > span {
+                    font-size: 0.7969rem;
+                }
+
+                > div {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.625rem;
+
+                    > a {
+                        font-size: 1.0625rem;
+                    }
+
+                    > div {
+                        background-image: url(./chevron-white.svg);
+                        width: 10px;
+                        height: 10px;
+                        rotate: -90deg;
+                        background-repeat: no-repeat;
+                        background-size: 100%;
+                    }
+                }
+
+                &.anterior {
+                    align-items: flex-start;
+
+                    > div > div {
+                        rotate: 90deg;
+                    }
+                }
+
+                &.proximo {
+                    align-items: flex-end;
+                }
+            }
         }
     }
 }

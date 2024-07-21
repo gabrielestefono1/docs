@@ -51,7 +51,11 @@ class PostagemResource extends Resource
                     ->label("Qual grupo?")
                     ->options(function () {
                         return Grupo::pluck('titulo', 'id')->toArray();
-                    })
+                    }),
+                TextInput::make('titulo_anterior'),
+                TextInput::make('slug_anterior'),
+                TextInput::make('titulo_proximo'),
+                TextInput::make('slug_proximo'),
             ])->columns(1);
     }
 

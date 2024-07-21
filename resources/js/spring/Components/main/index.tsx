@@ -34,6 +34,37 @@ export default function Main({ objetoAtual, textos }: Readonly<MainProps>) {
                         <ReactMarkdown>{texto.texto.descricao}</ReactMarkdown>
                     </Fragment>
                 ))}
+                {(objetoAtual.titulo_anterior ||
+                    objetoAtual.titulo_proximo) && (
+                    <div className={styles.navigation}>
+                        <div className={styles.anterior}>
+                            {objetoAtual.titulo_anterior && (
+                                <>
+                                    <span>Anterior</span>
+                                    <div>
+                                        <div></div>
+                                        <a href={objetoAtual.slug_anterior}>
+                                            {objetoAtual.titulo_anterior}
+                                        </a>
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                        <div className={styles.proximo}>
+                            {objetoAtual.titulo_proximo && (
+                                <>
+                                    <span>Próximo</span>
+                                    <div>
+                                        <a href={objetoAtual.slug_proximo}>
+                                            {objetoAtual.titulo_proximo}
+                                        </a>
+                                        <div></div>
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

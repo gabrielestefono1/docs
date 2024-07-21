@@ -56,7 +56,11 @@ class GrupoResource extends Resource
                                 return $query->where('id', '!=', $form->model->id);
                             })->pluck('titulo', 'id')->toArray();
                         }
-                    })
+                    }),
+                TextInput::make('titulo_anterior'),
+                TextInput::make('slug_anterior'),
+                TextInput::make('titulo_proximo'),
+                TextInput::make('slug_proximo'),
             ])->columns(1);
     }
 

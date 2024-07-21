@@ -19,6 +19,10 @@ export interface Ordenavel {
     titulo: string;
     slug: string;
     updated_at: string;
+    titulo_anterior?: string;
+    slug_anterior?: string;
+    titulo_proximo?: string;
+    slug_proximo?: string;
 }
 
 export interface OrdenacaoGrupo {

@@ -9,7 +9,17 @@ class Postagem extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo', 'descricao', 'grupo_id', 'is_grupo', 'slug'];
+    protected $fillable = [
+        'titulo',
+        'descricao',
+        'grupo_id',
+        'is_grupo',
+        'slug',
+        'titulo_anterior',
+        'slug_anterior',
+        'titulo_proximo',
+        'slug_proximo',
+    ];
 
     protected $table = 'spring.postagems';
 
@@ -17,7 +27,8 @@ class Postagem extends Model
         'is_grupo' => 'boolean',
     ];
 
-    public function grupo(){
+    public function grupo()
+    {
         return $this->belongsTo(Grupo::class, 'grupo_id');
     }
 
@@ -36,7 +47,8 @@ class Postagem extends Model
         return $this->hasMany(Texto::class, 'postagem_id');
     }
 
-    public function ordenacao_textos(){
+    public function ordenacao_textos()
+    {
         return $this->hasOne(OrdenacaoTextos::class, 'postagem_id');
     }
 }
