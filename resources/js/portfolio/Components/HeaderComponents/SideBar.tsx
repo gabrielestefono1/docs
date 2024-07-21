@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import estilo from "./SideBar.module.scss";
 import LinkCustom from "@/portfolio/Components/Shared/LinkCustom/LinkCustom";
 

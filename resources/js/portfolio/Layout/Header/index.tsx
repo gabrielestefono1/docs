@@ -11,7 +11,7 @@ export default function Header() {
     return (
         <>
             <header className={styles.header}>
-                <div className={open ? styles.fixed : ''}>
+                <div className={open ? styles.fixed : ""}>
                     <div>
                         <div className={styles.left}>
                             <a href="/">

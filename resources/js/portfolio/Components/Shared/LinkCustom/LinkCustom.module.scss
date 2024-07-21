@@ -1,5 +1,3 @@
-@import "../../../styles/variables.module";
-
 @mixin tabletPaisagem {
     @media (min-width: 1024px) {
         @content;
@@ -26,15 +24,15 @@
     &:hover {
         box-sizing: border-box;
         padding-bottom: 0.25rem;
-        border-bottom: 2px solid $cor-primaria;
+        border-bottom: 2px solid var(--cor-primaria);
         opacity: 0.8;
-        color: $cor-primaria;
+        color: var(--cor-primaria);
     }
 
     &.active {
-        color: $cor-primaria;
+        color: var(--cor-primaria);
         padding-bottom: 0.25rem;
-        border-bottom: 2px solid $cor-primaria;
+        border-bottom: 2px solid var(--cor-primaria);
     }
 }
 
@@ -50,15 +48,14 @@
     &:hover {
         box-sizing: border-box;
         padding-bottom: 0.25rem;
-        border-bottom: 2px solid $cor-primaria;
+        border-bottom: 2px solid var(--cor-primaria);
         opacity: 0.8;
-        color: $cor-primaria;
+        color: var(--cor-primaria);
     }
 
     &.active {
-        color: $cor-primaria;
+        color: var(--cor-primaria);
         padding-bottom: 0.25rem;
-        border-bottom: 2px solid $cor-primaria;
+        border-bottom: 2px solid var(--cor-primaria);
     }
 }
-

@@ -1,4 +1,3 @@
-@import "../../styles/variables.module";
 @mixin tabletPaisagem {
     @media (min-width: 1024px) {
         @content;
@@ -29,10 +28,6 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-
-            @include LaptopHD {
-                width: calc(100% - 15rem);
-            }
 
             .left {
                 height: 3.8125rem;

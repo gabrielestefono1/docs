@@ -27,7 +27,7 @@ export default function Layout({
     return (
         <>
             <Head title={title} />
-            <Header/>
+            <Header />
             <main>{children}</main>
             {/* <Footer></Footer> */}
         </>

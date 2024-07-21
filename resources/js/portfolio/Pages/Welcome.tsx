@@ -1,7 +1,5 @@
-import { Head } from "@inertiajs/react";
 import Layout from "../Layout";
 import Presentation from "../Components/Presentation/Presentation";
-import ButtonBars from "../Layout/Header/ButtonBars";
 
 interface ReactProps {}
 

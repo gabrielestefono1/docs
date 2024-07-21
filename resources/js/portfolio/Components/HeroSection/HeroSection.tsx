@@ -7,48 +7,47 @@ import bg4 from "./bg4.webp";
 import bg5 from "./bg5.webp";
 
 export default function HeroSection() {
+    const divBg = useRef<HTMLDivElement | null>(null);
 
-  const divBg = useRef<HTMLDivElement | null>(null);
+    const [bgLoaded, setBgLoaded] = useState<boolean>(false);
 
-  const [bgLoaded, setBgLoaded] = useState<boolean>(false);
+    useEffect(() => {
+        const elementoRecebido = divBg.current;
+        const larguraTela = window.innerWidth;
 
-  useEffect(() => {
-    const elementoRecebido = divBg.current;
-    const larguraTela = window.innerWidth;
+        let backgroundImageSrc: string = "";
 
-    let backgroundImageSrc: string = "";
+        if (larguraTela <= 768) {
+            backgroundImageSrc = bg1;
+        } else if (larguraTela <= 1024) {
+            backgroundImageSrc = bg2;
+        } else if (larguraTela <= 1280) {
+            backgroundImageSrc = bg3;
+        } else if (larguraTela <= 1440) {
+            backgroundImageSrc = bg4;
+        } else {
+            backgroundImageSrc = bg5;
+        }
 
-    if (larguraTela <= 768) {
-      backgroundImageSrc = bg1;
-    } else if (larguraTela <= 1024) {
-      backgroundImageSrc = bg2;
-    } else if (larguraTela <= 1280) {
-      backgroundImageSrc = bg3;
-    } else if (larguraTela <= 1440) {
-      backgroundImageSrc = bg4;
-    } else {
-      backgroundImageSrc = bg5;
-    }
+        const backgroundImage = new Image();
 
-    const backgroundImage = new Image();
+        backgroundImage.loading = "eager";
 
-    backgroundImage.loading = "eager";
+        backgroundImage.src = backgroundImageSrc;
 
-    backgroundImage.src = backgroundImageSrc;
+        if (!elementoRecebido) {
+            return;
+        }
 
-    if(!elementoRecebido){
-      return;
-    }
+        backgroundImage.onload = () => {
+            elementoRecebido.style.backgroundImage = `url(${backgroundImageSrc})`;
+            setBgLoaded(true);
+        };
+    }, []);
 
-    backgroundImage.onload = () => {
-      elementoRecebido.style.backgroundImage = `url(${backgroundImageSrc})`;
-      setBgLoaded(true);
-    };
-  }, []);
-
-  return (
-    <div className={styles.herosection} ref={divBg}>
-      {bgLoaded && <div>Testando</div>}
-    </div>
-  );
+    return (
+        <div className={styles.herosection} ref={divBg}>
+            {bgLoaded && <div>Testando</div>}
+        </div>
+    );
 }
