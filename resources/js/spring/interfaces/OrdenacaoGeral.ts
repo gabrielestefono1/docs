@@ -50,3 +50,8 @@ export interface Texto {
     titulo: string;
     updated_at: string;
 }
+
+export interface Titulo {
+    id: number;
+    titulo: string;
+}

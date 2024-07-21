@@ -69,16 +69,20 @@ class SpringHomeController extends Controller
             }
         }
 
+
         $objetoAtual = $this->buscarTexto($slug);
         $textos = null;
-        if($objetoAtual instanceof Postagem){
+        $titulos = null;
+        if ($objetoAtual instanceof Postagem) {
             $textos = $objetoAtual->ordenacao_textos()->orderBy('ordem')->get()->load('texto');
+            $titulos = $textos->map(fn ($ordem) => $ordem->texto)->map(fn ($texto) => ['id' => $texto->id, 'titulo' => $texto->titulo]);
         }
 
         return Inertia::render('Docs', [
             'ordens' => $ordens,
             'objetoAtual' => $objetoAtual,
-            'textos' => $textos
+            'textos' => $textos,
+            'titulos' => $titulos ?? [],
         ]);
     }
 }

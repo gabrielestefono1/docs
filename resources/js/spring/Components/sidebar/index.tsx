@@ -14,7 +14,7 @@ export default function Sidebar() {
                     <p>Spring Framework</p>
                     <button>•••</button>
                 </div>
-                <div>6.1.10</div>
+                <div> 6.1.10 </div>
             </div>
             <button>
                 <div>

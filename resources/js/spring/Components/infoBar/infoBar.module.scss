@@ -1,5 +1,36 @@
 div.info {
     width: 21rem;
     height: 100vh;
-    background-color: rebeccapurple;
+    color: #cecfd1;
+
+    > div {
+        padding-block: 1.125rem;
+
+        > h3 {
+            font-size: 0.875rem;
+            font-weight: 700;
+            line-height: 18.2px;
+            tab-size: 4;
+            padding-top: 1.25rem;
+            padding-bottom: 0.625rem;
+        }
+
+        > a {
+            max-width: 11.875rem;
+            font-size: 12px;
+            line-height: 14.4px;
+            padding: .2813rem 0 .2813rem .5625rem;
+            display: block;
+            border-left: 4px solid #2c3135;
+
+            &:hover{
+                color: var(--spring-texto-secundario);
+                border-left: 4px solid #6bb536;
+            }
+
+            &.active{
+                border-left: 4px solid #6bb536;
+            }
+        }
+    }
 }
