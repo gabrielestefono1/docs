@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "barryvdh/laravel-dompdf": "*",
         "filament/filament": "^3.2",
         "graham-campbell/markdown": "^15.2",
         "inertiajs/inertia-laravel": "^1.0",
@@ -16,6 +17,7 @@
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
+        "phpoffice/phpword": "*",
         "predis/predis": "^2.2",
         "tightenco/ziggy": "^2.0"
     },

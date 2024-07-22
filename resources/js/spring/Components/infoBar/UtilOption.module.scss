@@ -1,0 +1,9 @@
+.utilOption{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    &:hover{
+        color: var(--spring-texto-secundario);
+    }
+}
