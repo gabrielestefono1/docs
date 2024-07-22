@@ -1,13 +1,14 @@
 import Layout from "../Layout";
 import Presentation from "../Components/Presentation/Presentation";
 import Separator from "../Components/Shared/Separator/Separator";
+import About from "../Components/Home/About/About";
 
 export default function Welcome() {
     return (
         <Layout title="Portfólio">
             <Presentation />
             <Separator titulo="Sobre" />
-            {/* <About /> */}
+            <About />
             <Separator titulo="Projetos" />
             {/* <Project/> */}
             <Separator titulo="Habilidades" />
