@@ -1,11 +1,23 @@
-import videojs from "video.js";
+import { VideoJsPlayerOptions } from "video.js";
 import estilo from "./About.module.scss";
-import illustracao1 from "./illustrative1.webp";
-import illustracao2 from "./illustrative2.webp";
 import ItemList from "./ItemsList";
-import VideoPlayer from "./VideoPlayer";
+import VideoJS from "./VideoPlayer";
 
 export default function About() {
+    const videoJsOptions: VideoJsPlayerOptions = {
+        controls: true,
+        responsive: true,
+        fluid: true,
+        userActions: {
+            click: true,
+        },
+        sources: [
+            {
+                src: "./teste.mp4",
+                type: "video/mp4",
+            },
+        ],
+    };
 
     return (
         <section className={estilo.about}>
@@ -32,16 +44,7 @@ export default function About() {
                     </div>
                 </div>
                 <div className={estilo.right}>
-                    <VideoPlayer />
-                    {/* <img
-                        src={illustracao1}
-                        alt="Ilustração"
-                        width={536}
-                        height={435}
-                        srcSet={`${illustracao2} 540w`}
-                        sizes="(max-width: 767px) 360px, 536px"
-                        loading="eager"
-                    /> */}
+                    <VideoJS options={videoJsOptions} />
                 </div>
             </div>
         </section>

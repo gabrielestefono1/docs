@@ -46,30 +46,30 @@
     justify-content: center;
     gap: 9.125rem;
     padding-bottom: 8.125rem;
-  
+
     &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: var(--cor-primaria);
-      opacity: 0.1;
-      z-index: -1;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: var(--cor-primaria);
+        opacity: 0.1;
+        z-index: -1;
     }
 
-    .container{
+    .container {
         width: 100%;
         display: flex;
         justify-content: center;
-        gap: 9.125rem;
         flex-direction: column;
         align-items: center;
 
-        @include LaptopPadrao(){
+        @include LaptopPadrao() {
             flex-direction: row;
             width: calc(100% - 7.5rem);
+            gap: 9.125rem;
         }
 
         .left {
@@ -77,11 +77,10 @@
             margin-left: 3.75rem;
             max-width: 34.375rem;
 
-            @include tabletNormal(){
+            @include tabletNormal() {
                 margin-left: 0;
             }
-        
-        
+
             .title {
                 font-family: var(--dm-sans);
                 color: var(--cor-secundaria);
@@ -90,7 +89,7 @@
                 font-weight: 700;
                 margin-top: 2.6875rem;
             }
-    
+
             .list {
                 margin-top: 2.25rem;
                 display: grid;
@@ -98,25 +97,25 @@
                 grid-column-gap: 0px;
                 grid-row-gap: 1.625rem;
 
-                @include tabletNormal(){
+                @include tabletNormal() {
                     grid-template-columns: repeat(2, 1fr);
                 }
             }
-    
+
             .buttons {
                 margin-top: 3.75rem;
                 display: flex;
                 gap: 1.5rem;
                 flex-direction: column;
 
-                @include tabletNormal(){
+                @include tabletNormal() {
                     flex-direction: row;
                 }
-    
+
                 .first {
                     background-color: var(--cor-primaria);
                     border: none;
-                    border-radius: .25rem;
+                    border-radius: 0.25rem;
                     color: white;
                     font-family: var(--dm-sans);
                     font-size: 1.125rem;
@@ -126,11 +125,11 @@
                     height: 4.125rem;
                     cursor: pointer;
                 }
-    
+
                 .second {
                     background-color: transparent;
                     border: 2px solid var(--cor-secundaria);
-                    border-radius: .25rem;
+                    border-radius: 0.25rem;
                     color: var(--cor-secundaria);
                     font-family: var(--dm-sans);
                     font-size: 1.125rem;
@@ -144,21 +143,21 @@
         }
 
         .right {
-            width: 100vw;
+            width: 100%;
             height: auto;
             margin-top: 5.4375rem;
             display: flex;
             justify-content: center;
 
-            img {
-                width: 100vw;
+            > div {
+                width: 100%;
                 height: auto;
                 max-width: 34.375rem;
 
-                @include tabletNormal(){
+                @include tabletNormal() {
                     width: 100%;
                 }
             }
         }
     }
-  }
+}

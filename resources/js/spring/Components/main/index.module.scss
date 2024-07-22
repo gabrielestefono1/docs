@@ -2,7 +2,7 @@ div.main {
     flex-grow: 1;
     height: 100vh;
     width: 100%;
-    max-width: calc(100vw - 657px);
+    max-width: calc(100% - 657px);
     color: var(--spring-texto-primario);
 
     > div:first-child {
