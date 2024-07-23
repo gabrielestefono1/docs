@@ -1,0 +1,101 @@
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
+@mixin DesktopHd {
+    @media (min-width: 2560px) {
+        @content;
+    }
+}
+
+.skillsleft{
+    margin-top: 4.3125rem;
+    font-size: 2.75rem;
+    line-height: 3.6875rem;
+    font-weight: 600;
+    color: var(--cor-secundaria);
+    max-width: 34rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tabletPaisagem(){
+        align-items: inherit;
+    }
+
+    h3{
+        text-align: center;
+
+        @include tabletPaisagem(){
+            text-align: left;
+        }
+    }
+
+    span{
+        color: var(--cor-primaria);
+        max-width: 29.6875rem;
+    }
+
+    p{
+        font-size: 1.125rem;
+        font-weight: 400;
+        margin-top: 1.625rem;
+        color: var(--cor-secundaria);
+        line-height: 1.5;
+        max-width: 29.6875rem;
+        text-align: center;
+
+        @include tabletPaisagem(){
+            text-align: left;
+        }
+    }
+
+    > a{
+        margin-top: 2.75rem;
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 1.5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: var(--cor-primaria);
+        border: none;
+        border-radius: .25rem;
+        width: 9.375rem;
+        height: 3.8125rem;
+        cursor: pointer;
+    }
+}
