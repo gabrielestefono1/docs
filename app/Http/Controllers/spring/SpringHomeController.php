@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\spring\Grupo;
 use App\Models\spring\OrdenacaoGeral;
 use App\Models\spring\Postagem;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Inertia\Inertia;
 
 use function PHPUnit\Framework\isEmpty;
