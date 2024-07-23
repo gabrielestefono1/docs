@@ -5,6 +5,8 @@ import { OrdemContext } from "@/spring/contexts/OrdemContext";
 import Breadcrumb from "./Breadcrumb";
 import ReactMarkdown from "react-markdown";
 import { Ordenavel, TextoOrdenacao } from "@/spring/interfaces/OrdenacaoGeral";
+import rehypeRaw from "rehype-raw";
+import rehypeSanitize from "rehype-sanitize";
 
 interface MainProps {
     objetoAtual: Ordenavel;
@@ -27,11 +29,17 @@ export default function Main({ objetoAtual, textos }: Readonly<MainProps>) {
             </div>
             <div>
                 <h1>{objetoAtual.titulo}</h1>
-                <ReactMarkdown>{objetoAtual.descricao}</ReactMarkdown>
+                <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                    {objetoAtual.descricao}
+                </ReactMarkdown>
                 {textos?.map((texto) => (
                     <Fragment key={texto.texto.id}>
                         <h2>{texto.texto.titulo}</h2>
-                        <ReactMarkdown>{texto.texto.descricao}</ReactMarkdown>
+                        <ReactMarkdown
+                            rehypePlugins={[rehypeRaw]}
+                        >
+                            {texto.texto.descricao}
+                        </ReactMarkdown>
                     </Fragment>
                 ))}
                 {(objetoAtual.titulo_anterior ||
