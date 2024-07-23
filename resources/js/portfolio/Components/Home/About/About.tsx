@@ -1,24 +1,8 @@
-import { VideoJsPlayerOptions } from "video.js";
 import estilo from "./About.module.scss";
 import ItemList from "./ItemsList";
 import VideoJS from "./VideoPlayer";
 
 export default function About() {
-    const videoJsOptions: VideoJsPlayerOptions = {
-        controls: true,
-        responsive: true,
-        fluid: true,
-        userActions: {
-            click: true,
-        },
-        sources: [
-            {
-                src: "./teste.mp4",
-                type: "video/mp4",
-            },
-        ],
-    };
-
     return (
         <section className={estilo.about}>
             <div className={estilo.container}>
@@ -44,7 +28,7 @@ export default function About() {
                     </div>
                 </div>
                 <div className={estilo.right}>
-                    <VideoJS options={videoJsOptions} />
+                    <VideoJS/>
                 </div>
             </div>
         </section>

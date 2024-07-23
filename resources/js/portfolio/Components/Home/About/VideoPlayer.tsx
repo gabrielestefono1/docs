@@ -1,45 +1,42 @@
-import React, { useEffect, useRef } from "react";
-import videojs, { VideoJsPlayerOptions, VideoJsPlayer } from "video.js";
-import "video.js/dist/video-js.css";
+import { useEffect, useRef } from "react";
+import videojs from "video.js";
+import "video.js/dist/video-js.min.css";
 
-interface VideoJSProps {
-    options: VideoJsPlayerOptions;
-}
-
-export default function VideoJS({ options }: Readonly<VideoJSProps>) {
-    const videoRef = useRef<HTMLDivElement>(null);
-    const playerRef = useRef<VideoJsPlayer | null>(null);
+export default function VideoJS() {
+    const videoRef = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
-        if (!videoRef.current) {
-            return;
-        }
-        if (!playerRef.current) {
-            const videoElement = document.createElement("video-js");
-            videoElement.classList.add("vjs-big-play-centered");
-            videoRef.current.appendChild(videoElement);
-            playerRef.current = videojs(videoElement, options);
-        } else {
-            const player = playerRef.current;
-            player.autoplay(options.autoplay ?? false);
-            player.src(options.sources ?? []);
-        }
-    }, [options]);
+        if (videoRef.current) {
+            const player = videojs(videoRef.current, {
+                controls: true,
+                autoplay: false,
+                preload: "auto",
+                controlBar: {
+                    children: [
+                        "playToggle", // Botão de play/pause
+                        "currentTimeDisplay", // Tempo atual
+                        "durationDisplay", // Duração total
+                        "progressControl", // Barra de progresso
+                        "volumePanel", // Controle de volume
+                        "fullscreenToggle", // Alternar tela cheia
+                    ],
+                },
+            });
 
-    useEffect(() => {
-        const player = playerRef.current;
-
-        return () => {
-            if (player && !player.isDisposed()) {
-                player.dispose();
-                playerRef.current = null;
-            }
-        };
+            // player.on("timeupdate", () => {
+            //     console.log(player.controls());
+            // });
+        }
     }, []);
 
     return (
-        <div data-vjs-player>
-            <div ref={videoRef} />
-        </div>
+        <video
+            id="vid1"
+            className="video-js"
+            ref={videoRef}
+            style={{ height: "22.5rem" }}
+        >
+            <source src="./teste.mp4" />
+        </video>
     );
 }
