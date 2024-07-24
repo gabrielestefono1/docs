@@ -18,6 +18,7 @@ div.sidebar {
         text-overflow: ellipsis;
         white-space: nowrap;
         font-size: 0.875rem;
+        box-sizing: border-box;
 
         > div:first-child {
             display: flex;
@@ -25,6 +26,7 @@ div.sidebar {
             align-items: center;
 
             > button {
+                border: none;
                 width: 1.5rem;
                 height: 1.5rem;
                 padding: 0.25rem 0.375rem 0.0625rem 0.375rem;
@@ -34,6 +36,8 @@ div.sidebar {
                 align-items: center;
                 box-sizing: content-box;
                 justify-content: center;
+                cursor: pointer;
+                color: var(--spring-texto-primario);
 
                 &:hover {
                     background-color: #323639;
@@ -55,6 +59,7 @@ div.sidebar {
     }
 
     > button {
+        border: none;
         display: flex;
         border-top: var(--spring-borda-separacao);
         border-bottom: var(--spring-borda-separacao);
@@ -65,6 +70,9 @@ div.sidebar {
         margin-top: 1.125rem;
         font-size: 0.875rem;
         padding: 0 0.5rem 0 2.5rem;
+        cursor: pointer;
+        background-color: transparent;
+        color: var(--spring-texto-primario);
 
         > div {
             display: flex;

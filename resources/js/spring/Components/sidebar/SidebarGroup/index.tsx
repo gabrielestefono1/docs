@@ -1,8 +1,7 @@
-import { OrdenacaoGrupo, Ordenavel } from "@/spring/interfaces/OrdenacaoGeral";
+import { OrdenacaoGrupo } from "@/spring/interfaces/OrdenacaoGeral";
 import SidebarItem from "../SidebarItem";
 import styles from "./SidebarGroup.module.scss";
-import { Link, router, usePage } from "@inertiajs/react";
-import { useLocation } from "react-router-dom";
+import { Link, usePage } from "@inertiajs/react";
 
 interface SidebarItemProps {
     titulo: string;
@@ -21,7 +20,7 @@ export default function SidebarGroup({
     const active = `/${slug}` === url || url.includes(`/${slug}`);
     return (
         <>
-            <Link href={`/${slug}`}>
+            <Link href={`/${slug}`} className={styles.sidebarLink}>
                 <button
                     className={`${styles.sidebarGroup} ${
                         active ? styles.active : ""

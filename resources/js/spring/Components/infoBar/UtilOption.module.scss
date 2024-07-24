@@ -2,6 +2,10 @@
     display: flex;
     gap: 1rem;
     align-items: center;
+    background-color: transparent;
+    color: var(--spring-texto-primario);
+    border: none;
+    cursor: pointer;
 
     &:hover{
         color: var(--spring-texto-secundario);
