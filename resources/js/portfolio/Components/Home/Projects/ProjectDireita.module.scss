@@ -1,0 +1,59 @@
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
+@mixin DesktopHd {
+    @media (min-width: 2560px) {
+        @content;
+    }
+}
+
+.swiperDireita {
+    max-width: 100%;
+    height: 34.1875rem;
+
+    @include tabletPaisagem() {
+        width: 75%;
+        overflow: hidden;
+    }
+
+    .slides {
+        
+        @include tabletPaisagem() {
+            height: 27.5rem;
+            transition: 0.5s;
+        }
+    }
+}

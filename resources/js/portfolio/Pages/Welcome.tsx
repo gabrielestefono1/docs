@@ -5,6 +5,7 @@ import About from "../Components/Home/About/About";
 import Skills from "../Components/Home/Skills/Skills";
 import ContactMe from "../Components/Home/ContactMe/ContactMe";
 import Faq from "../Components/Home/Faq/Faq";
+import Project from "../Components/Home/Projects/Project";
 
 export default function Welcome() {
     return (
@@ -13,7 +14,7 @@ export default function Welcome() {
             <Separator titulo="Sobre" />
             <About />
             <Separator titulo="Projetos" />
-            {/* <Project/> */}
+            <Project/>
             <Separator titulo="Habilidades" />
             <Skills />
             <Separator titulo="Contato" />

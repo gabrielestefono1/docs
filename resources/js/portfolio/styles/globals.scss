@@ -132,3 +132,53 @@ table {
 .swiper-wrapper {
     margin-left: 15px;
 }
+
+.swiper-slide-active {
+    background-color: blue;
+    height: 50rem !important;
+    transition: 0.5s;
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 35px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    background-color: #C4C4C4;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active{
+    width: 30px !important;
+    height: 30px !important;
+    box-sizing: border-box;
+    background-color: white !important;
+    border: 3px solid #C4C4C4;
+    position: relative;
+
+    &::after{
+        content: '';
+        display: block;
+        width: .875rem;
+        height: .875rem;
+        background-color: var(--cor-primaria);
+        z-index: 2;
+        border-radius: 2px;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%) translateY(-50%);
+        transition: 0.2s;
+    }
+}
