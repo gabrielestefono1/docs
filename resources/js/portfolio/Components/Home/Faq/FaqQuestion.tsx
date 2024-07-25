@@ -1,46 +1,45 @@
-import estilo from "./FaqQuestion.module.scss";
-import { useState } from "react";
-import icon from "./icon.png";
+import React, { useState, useRef, useEffect } from "react";
 import close from "./close.png";
+import styles from "./FaqQuestion.module.scss";
 
-export default function FaqQuestion() {
-    const [clicked, setClicked] = useState(false);
+const AccordionItem = ({ title, content }: any) => {
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [maxHeight, setMaxHeight] = useState("0px");
+    const panelRef = useRef<HTMLDivElement>(null);
 
-    const handleClick = () => {
-        setClicked(!clicked);
+    const toggleAccordion = () => {
+        setIsOpen(!isOpen);
     };
 
+    useEffect(() => {
+        if (!panelRef) {
+            return;
+        }
+        if (!panelRef.current) {
+            return;
+        }
+        setMaxHeight(isOpen ? `${panelRef.current.scrollHeight}px` : "0px");
+    }, [isOpen]);
+
     return (
-        <div
-            className={clicked ? estilo.openedQuestion : estilo.closedQuestion}
-        >
-            <div>
-                <h2>LOREM IPSUM</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit id
-                    venenatis pretium risus euismod dictum egestas orci netus
-                    feugiat ut egestas.
-                </p>
-            </div>
-            <div>
-                <button onClick={handleClick}>
-                    {clicked ? (
-                        <img
-                            src={close}
-                            width={10}
-                            height={10}
-                            alt="Ícone fechar"
-                        />
-                    ) : (
-                        <img
-                            src={icon}
-                            width={10}
-                            height={10}
-                            alt="Ícone mostrar"
-                        />
-                    )}
-                </button>
+        <div className={styles.faqAccordion}>
+            <button className={`${styles.accordion} ${isOpen ? styles.accordionAberto : styles.accordionFechado}`}
+                onClick={toggleAccordion}
+            >
+                {title}
+                <div className={isOpen ? styles.aberto : styles.fechado}>
+                    <img src={close} alt="Fechar" />
+                </div>
+            </button>
+            <div
+                ref={panelRef}
+                className={`${styles.panel} ${isOpen ? styles.open : ""}`}
+                style={{ maxHeight: maxHeight }}
+            >
+                <div className={styles.panelContent}>{content}</div>
             </div>
         </div>
     );
-}
+};
+
+export default AccordionItem;

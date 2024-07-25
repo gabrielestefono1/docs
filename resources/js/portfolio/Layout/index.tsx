@@ -8,7 +8,7 @@ export default function Layout({
     title,
 }: Readonly<{ children: ReactNode; title: string }>) {
     const body = document.body;
-    body.className = "portfólio";
+    body.className = "portfolio";
 
     useEffect(() => {
         const head = document.head;

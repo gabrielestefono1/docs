@@ -1,6 +1,11 @@
 :root {
     --cor-primaria: #006732;
+    --cor-primaria-clara: rgb(0, 103, 50, 0.1);
     --cor-secundaria: #15295f;
     --dm-sans: "DM Sans", sans-serif;
     --poppins: "Poppins", sans-serif;
+}
+
+body.portfolio{
+    font-family: var(--poppins);
 }

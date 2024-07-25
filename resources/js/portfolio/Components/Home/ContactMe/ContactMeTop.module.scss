@@ -41,7 +41,7 @@
 }
 
 .title{
-	width: 100vw;
+	width: 100%;
 	height: auto;
 	display: flex;
 	flex-direction: column;
@@ -72,7 +72,6 @@
 		font-family: var(--poppins);
 		color: var(--cor-secundaria);
 		text-align: center;
-		max-width: 34rem;
 		margin-top: 1.5rem;
 		max-width: calc(100vw - 3rem);
 	}
