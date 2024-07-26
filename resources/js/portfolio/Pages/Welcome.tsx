@@ -1,5 +1,5 @@
 import Layout from "../Layout";
-import Presentation from "../Components/Presentation/Presentation";
+import Presentation from "../Components/Home/Presentation/Presentation";
 import Separator from "../Components/Shared/Separator/Separator";
 import About from "../Components/Home/About/About";
 import Skills from "../Components/Home/Skills/Skills";

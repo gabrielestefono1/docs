@@ -1,7 +1,7 @@
 import styles from "./Header.module.scss";
 import imagem from "./logo.webp";
 import { useState } from "react";
-import SideBar from "@/portfolio/Components/HeaderComponents/SideBar";
+import SideBar from "@/portfolio/Components/Shared/HeaderComponents/SideBar";
 import LinkCustom from "../../Components/Shared/LinkCustom/LinkCustom";
 import ButtonBars from "./ButtonBars";
 
