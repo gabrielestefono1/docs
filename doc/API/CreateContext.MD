@@ -9,9 +9,9 @@ const SomeContext = createContext(defaultValue);
 ```
 
 - [Referência](https://react.dev/reference/react/createContext#reference)
-    - `[createContext(defaultValue)](https://react.dev/reference/react/createContext#createcontext)`
-    - `[SomeContext.Provider](https://react.dev/reference/react/createContext#provider)`
-    - `[SomeContext.Consumer](https://react.dev/reference/react/createContext#consumer)`
+    - [createContext(defaultValue)](https://react.dev/reference/react/createContext#createcontext)
+    - [SomeContext.Provider](https://react.dev/reference/react/createContext#provider)
+    - [SomeContext.Consumer](https://react.dev/reference/react/createContext#consumer)
 
 - [Uso](https://react.dev/reference/react/createContext#usage)
     - [Criando contexto](https://react.dev/reference/react/createContext#creating-context)
@@ -64,7 +64,7 @@ function App() {
 
 ### Props
 
-- `value`: O valor que você deseja passar para todos os componentes que lêem este contexto dentro deste provedor, não importa o quão profundo. O valor do contexto pode ser de qualquer tipo. Um componente que chama `[useContext(SomeContext)](https://react.dev/reference/react/useContext)` dentro do provedor recebe o valor do provedor de contexto correspondente mais interno acima dele.
+- `value`: O valor que você deseja passar para todos os componentes que lêem este contexto dentro deste provedor, não importa o quão profundo. O valor do contexto pode ser de qualquer tipo. Um componente que chama [useContext(SomeContext)](https://react.dev/reference/react/useContext) dentro do provedor recebe o valor do provedor de contexto correspondente mais interno acima dele.
 
 
 ## SomeContext.Consumer
@@ -84,7 +84,7 @@ function Button() {
 }
 ```
 
-Embora essa forma mais antiga ainda funcione, o código novo deve ler o contexto com `[useContext()](https://react.dev/reference/react/useContext)` em vez disso:
+Embora essa forma mais antiga ainda funcione, o código novo deve ler o contexto com [useContext()](https://react.dev/reference/react/useContext) em vez disso:
 
 ```typescript
 function Button() {
@@ -96,7 +96,7 @@ function Button() {
 
 ### Props
 
-- `children`: Uma função. O React chamará a função que você passar com o valor atual do contexto determinado pelo mesmo algoritmo que `[useContext()](https://react.dev/reference/react/useContext)`, e renderizará o resultado retornado por essa função. O React também reexecutará essa função e atualizará a interface sempre que o contexto dos componentes pai mudar.
+- `children`: Uma função. O React chamará a função que você passar com o valor atual do contexto determinado pelo mesmo algoritmo que [useContext()](https://react.dev/reference/react/useContext), e renderizará o resultado retornado por essa função. O React também reexecutará essa função e atualizará a interface sempre que o contexto dos componentes pai mudar.
 
 ## Uso
 
@@ -113,7 +113,7 @@ const ThemeContext = createContext('light');
 const AuthContext = createContext(null);
 ```
 
-`createContext` retorna um objeto de contexto. Os componentes podem ler o contexto passando-o para `[useContext()](https://react.dev/reference/react/useContext)`:
+`createContext` retorna um objeto de contexto. Os componentes podem ler o contexto passando-o para [useContext()](https://react.dev/reference/react/useContext):
 
 ```typescript
 function Button() {
