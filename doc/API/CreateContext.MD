@@ -2,21 +2,22 @@
 
 # createContext
 
-`createContext` permite que você crie um contexto que os componentes podem fornecer ou ler.
+`createContext` permite que você crie um [contexto](https://react.dev/learn/passing-data-deeply-with-context) que os componentes podem fornecer ou ler.
 
 ```typescript
 const SomeContext = createContext(defaultValue);
 ```
 
-- Referência   
-    - `createContext(defaultValue)`
-    - `SomeContext.Provider`
-    - `SomeContext.Consumer`
+- [Referência](https://react.dev/reference/react/createContext#reference)
+    - `[createContext(defaultValue)](https://react.dev/reference/react/createContext#createcontext)`
+    - `[SomeContext.Provider](https://react.dev/reference/react/createContext#provider)`
+    - `[SomeContext.Consumer](https://react.dev/reference/react/createContext#consumer)`
 
-- Uso
-    - Criando contexto
-    - Importando e exportando contexto de um arquivo
-    - Resolução de problemas: Não consigo encontrar uma forma de mudar o valor do contexto
+- [Uso](https://react.dev/reference/react/createContext#usage)
+    - [Criando contexto](https://react.dev/reference/react/createContext#creating-context)
+    - [Importando e exportando contexto de um arquivo](https://react.dev/reference/react/createContext#importing-and-exporting-context-from-a-file)
+- [Resolução de problemas](https://react.dev/reference/react/createContext#troubleshooting)
+    -[Não consigo encontrar uma forma de mudar o valor do contexto](https://react.dev/reference/react/createContext#i-cant-find-a-way-to-change-the-context-value)
 
 ## Referência
 
@@ -40,12 +41,12 @@ const ThemeContext = createContext('light');
 
 `createContext` retorna um objeto de contexto.
 
-**O objeto de contexto em si não contém informações**. Ele representa qual contexto outros componentes leem ou fornecem. Normalmente, você usará [SomeContext.Provider](https://react.dev/reference/react/createContext#provider) em componentes acima para especificar o valor do contexto e chamará [useContext(SomeContext)](https://react.dev/reference/react/useContext) em componentes abaixo para lê-lo. O objeto de contexto possui algumas propriedades:
+**O objeto de contexto em si não contém informações**. Ele representa *qual* contexto outros componentes leem ou fornecem. Normalmente, você usará [SomeContext.Provider](https://react.dev/reference/react/createContext#provider) em componentes acima para especificar o valor do contexto e chamará [useContext(SomeContext)](https://react.dev/reference/react/useContext) em componentes abaixo para lê-lo. O objeto de contexto possui algumas propriedades:
 
 - `SomeContext.Provider` permite que você forneça o valor do contexto para os componentes.
 - `SomeContext.Consumer` é uma alternativa e raramente usada para ler o valor do contexto.
 
-### SomeContext.Provider
+## SomeContext.Provider
 
 Envolva seus componentes em um provedor de contexto para especificar o valor deste contexto para todos os componentes internos:
 
@@ -63,10 +64,10 @@ function App() {
 
 ### Props
 
-- `value`: O valor que você deseja passar para todos os componentes que lêem este contexto dentro deste provedor, não importa o quão profundo. O valor do contexto pode ser de qualquer tipo. Um componente que chama `useContext(SomeContext)` dentro do provedor recebe o valor do provedor de contexto correspondente mais interno acima dele.
+- `value`: O valor que você deseja passar para todos os componentes que lêem este contexto dentro deste provedor, não importa o quão profundo. O valor do contexto pode ser de qualquer tipo. Um componente que chama `[useContext(SomeContext)](https://react.dev/reference/react/useContext)` dentro do provedor recebe o valor do provedor de contexto correspondente mais interno acima dele.
 
 
-**SomeContext.Consumer**
+## SomeContext.Consumer
 
 Antes do `useContext` existir, havia uma forma mais antiga de ler o contexto:
 
@@ -83,7 +84,7 @@ function Button() {
 }
 ```
 
-Embora essa forma mais antiga ainda funcione, o código novo deve ler o contexto com `useContext()` em vez disso:
+Embora essa forma mais antiga ainda funcione, o código novo deve ler o contexto com `[useContext()](https://react.dev/reference/react/useContext)` em vez disso:
 
 ```typescript
 function Button() {
@@ -93,24 +94,15 @@ function Button() {
 }
 ```
 
-**Props**
+### Props
 
-- `children`: Uma função. O React chamará a função que você passar com o valor atual do contexto determinado pelo mesmo algoritmo que `useContext()`, e renderizará o resultado retornado por essa função. O React também reexecutará essa função e atualizará a interface sempre que o contexto dos componentes pai mudar.
+- `children`: Uma função. O React chamará a função que você passar com o valor atual do contexto determinado pelo mesmo algoritmo que `[useContext()](https://react.dev/reference/react/useContext)`, e renderizará o resultado retornado por essa função. O React também reexecutará essa função e atualizará a interface sempre que o contexto dos componentes pai mudar.
 
+## Uso
 
+### Criando Contexto
 
-
-
-
-
-
-
-
-**Uso**
-
-**Criando Contexto**
-
-O contexto permite que componentes passem informações profundamente sem precisar passar explicitamente props.
+O contexto permite que componentes [passem informações profundamente](https://react.dev/learn/passing-data-deeply-with-context) sem precisar passar explicitamente props.
 
 Chame `createContext` fora de qualquer componente para criar um ou mais contextos.
 
@@ -121,7 +113,7 @@ const ThemeContext = createContext('light');
 const AuthContext = createContext(null);
 ```
 
-`createContext` retorna um objeto de contexto. Os componentes podem ler o contexto passando-o para `useContext()`:
+`createContext` retorna um objeto de contexto. Os componentes podem ler o contexto passando-o para `[useContext()](https://react.dev/reference/react/useContext)`:
 
 ```typescript
 function Button() {
@@ -137,7 +129,7 @@ function Profile() {
 
 Por padrão, os valores que eles recebem serão os valores padrão que você especificou ao criar os contextos. No entanto, por si só, isso não é útil porque os valores padrão nunca mudam.
 
-O contexto é útil porque você pode fornecer outros valores dinâmicos a partir dos seus componentes:
+O contexto é útil porque você pode **fornecer outros valores dinâmicos a partir dos seus componentes**:
 
 ```typescript
 function App() {
@@ -158,17 +150,11 @@ function App() {
 
 Agora o componente `Page` e quaisquer componentes internos, não importa quão profundos, “verão” os valores de contexto passados. Se os valores de contexto passados mudarem, o React re-renderizará os componentes que leem o contexto também.
 
-Leia mais sobre leitura e fornecimento de contexto e veja exemplos.
+[Leia mais sobre leitura e fornecimento de contexto e veja exemplos](https://react.dev/reference/react/useContext).
 
+## Importando e Exportando Contexto de um Arquivo
 
-
-
-
-
-
-**Importando e Exportando Contexto de um Arquivo**
-
-Muitas vezes, componentes em arquivos diferentes precisarão acessar o mesmo contexto. Por isso, é comum declarar contextos em um arquivo separado. Então, você pode usar a instrução `export` para tornar o contexto disponível para outros arquivos:
+Muitas vezes, componentes em arquivos diferentes precisarão acessar o mesmo contexto. Por isso, é comum declarar contextos em um arquivo separado. Então, você pode usar a [instrução `export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) para tornar o contexto disponível para outros arquivos:
 
 ```typescript
 // Contexts.js
@@ -178,7 +164,7 @@ export const ThemeContext = createContext('light');
 export const AuthContext = createContext(null);
 ```
 
-Componentes declarados em outros arquivos podem então usar a instrução `import` para ler ou fornecer esse contexto:
+Componentes declarados em outros arquivos podem então usar a instrução [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) para ler ou fornecer esse contexto:
 
 ```typescript
 // Button.js
@@ -206,18 +192,11 @@ function App() {
 }
 ```
 
-Isso funciona de maneira similar à importação e exportação de componentes.
+Isso funciona de maneira similar à [importação e exportação de componentes](https://react.dev/learn/importing-and-exporting-components).
 
+## Resolução de Problemas
 
-
-
-
-
-
-
-**Resolução de Problemas**
-
-**Não consigo encontrar uma maneira de mudar o valor do contexto**
+### Não consigo encontrar uma maneira de mudar o valor do contexto
 
 Código como este especifica o valor padrão do contexto:
 
@@ -227,4 +206,4 @@ const ThemeContext = createContext('light');
 
 Esse valor nunca muda. O React usa esse valor apenas como uma fallback se não encontrar um provedor correspondente acima.
 
-Para fazer o contexto mudar com o tempo, adicione estado e envolva os componentes em um provedor de contexto.
+Para fazer o contexto mudar com o tempo, [adicione estado e envolva os componentes em um provedor de contexto](https://react.dev/reference/react/useContext#updating-data-passed-via-context).
