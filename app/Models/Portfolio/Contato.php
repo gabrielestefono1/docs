@@ -14,8 +14,20 @@ class Contato extends Model
     protected $fillable = [
         'mensagem_inicial',
         'whatsapp',
+        'whatsapp_icon',
+        'whatsapp_link',
         'email',
+        'email_icon',
+        'email_link',
         'linkedin',
+        'linkedin_icon',
+        'linkedin_link'
+    ];
+
+    protected $casts = [
+        'whatsapp_icon' => 'array',
+        'email_icon' => 'array',
+        'linkedin_icon' => 'array',
     ];
     
 }

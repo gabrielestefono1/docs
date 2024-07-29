@@ -10,4 +10,12 @@ class CreateContato extends CreateRecord
 {
     protected static string $resource = ContatoResource::class;
 
+    public function getFormActions(): array
+    {
+        return [
+            $this->getCreateFormAction(),
+            $this->getCancelFormAction(),
+        ];
+    }
+
 }

@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Exception;
 use Filament\Clusters\Cluster;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Navigation\NavigationItem;
 use Filament\Pages\Page as BasePage;
@@ -24,6 +25,7 @@ use Filament\Resources\Pages\Concerns\CanAuthorizeResourceAccess;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Route as RouteFacade;
+use Illuminate\Support\Facades\Schema;
 
 class ContatoResource extends Resource
 {
@@ -44,8 +46,16 @@ class ContatoResource extends Resource
             ->schema([
                 TextInput::make('mensagem_inicial'),
                 TextInput::make('whatsapp'),
+                FileUpload::make('whatsapp_icon')
+                    ->image()
+                    ->disk('public'),
+                TextInput::make('whatsapp_link'),
                 TextInput::make('email'),
+                FileUpload::make('email_icon'),
+                TextInput::make('email_link'),
                 TextInput::make('linkedin'),
+                FileUpload::make('linkedin_icon'),
+                TextInput::make('linkedin_link'),
             ])->columns(1);
     }
 
@@ -71,12 +81,20 @@ class ContatoResource extends Resource
 
     public static function getPages(): array
     {
-        $nullSafety = Contato::first() !== null;
-        if ($nullSafety) {
+        // Verifique se a tabela existe
+        if (Schema::hasTable('portfolio.contatos')) {
+            $nullSafety = Contato::first() !== null;
+            if ($nullSafety) {
+                return [
+                    'index' => Pages\EditContato::route('/'),
+                ];
+            }
+
             return [
-                'index' => Pages\EditContato::route('/'),
+                'index' => Pages\CreateContato::route('/')
             ];
         }
+
         return [
             'index' => Pages\CreateContato::route('/')
         ];

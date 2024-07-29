@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('portfolio.contatos', function (Blueprint $table) {
             $table->id();
-            // $table->string("mensagem_inicial");
-            // $table->string("whatsapp");
-            // $table->string("whatsapp_icon");
-            // $table->string("whatsapp_link");
-            // $table->string("email");
-            // $table->string("email_icon");
-            // $table->string("email_link");
-            // $table->string("linkedin");
-            // $table->string("linkedin_icon");
-            // $table->string("linkedin_link");
+            $table->string("mensagem_inicial");
+            $table->string("whatsapp");
+            $table->string("whatsapp_icon");
+            $table->string("whatsapp_link")->nullable();
+            $table->string("email");
+            $table->string("email_icon");
+            $table->string("email_link")->nullable();
+            $table->string("linkedin");
+            $table->string("linkedin_icon");
+            $table->string("linkedin_link")->nullable();
             $table->timestamps();
         });
     }
