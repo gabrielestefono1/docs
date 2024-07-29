@@ -152,15 +152,9 @@ Agora o componente `Page` e quaisquer componentes internos, não importa quão p
 
 [Leia mais sobre leitura e fornecimento de contexto e veja exemplos](https://react.dev/reference/react/useContext).
 
+## Importando e Exportando Contexto de um Arquivo
 
-
-
-
-
-
-**Importando e Exportando Contexto de um Arquivo**
-
-Muitas vezes, componentes em arquivos diferentes precisarão acessar o mesmo contexto. Por isso, é comum declarar contextos em um arquivo separado. Então, você pode usar a instrução `export` para tornar o contexto disponível para outros arquivos:
+Muitas vezes, componentes em arquivos diferentes precisarão acessar o mesmo contexto. Por isso, é comum declarar contextos em um arquivo separado. Então, você pode usar a [instrução `export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) para tornar o contexto disponível para outros arquivos:
 
 ```typescript
 // Contexts.js
@@ -170,7 +164,7 @@ export const ThemeContext = createContext('light');
 export const AuthContext = createContext(null);
 ```
 
-Componentes declarados em outros arquivos podem então usar a instrução `import` para ler ou fornecer esse contexto:
+Componentes declarados em outros arquivos podem então usar a instrução [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) para ler ou fornecer esse contexto:
 
 ```typescript
 // Button.js
@@ -198,18 +192,11 @@ function App() {
 }
 ```
 
-Isso funciona de maneira similar à importação e exportação de componentes.
+Isso funciona de maneira similar à [importação e exportação de componentes](https://react.dev/learn/importing-and-exporting-components).
 
+## Resolução de Problemas
 
-
-
-
-
-
-
-**Resolução de Problemas**
-
-**Não consigo encontrar uma maneira de mudar o valor do contexto**
+### Não consigo encontrar uma maneira de mudar o valor do contexto
 
 Código como este especifica o valor padrão do contexto:
 
@@ -219,4 +206,4 @@ const ThemeContext = createContext('light');
 
 Esse valor nunca muda. O React usa esse valor apenas como uma fallback se não encontrar um provedor correspondente acima.
 
-Para fazer o contexto mudar com o tempo, adicione estado e envolva os componentes em um provedor de contexto.
+Para fazer o contexto mudar com o tempo, [adicione estado e envolva os componentes em um provedor de contexto](https://react.dev/reference/react/useContext#updating-data-passed-via-context).
